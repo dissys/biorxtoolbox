@@ -1,3 +1,6 @@
+#Changes
+Refactored the project, 2023 August
+
 # source
 preqReceiver 
 
@@ -10,3 +13,4 @@ If the file is in quarantine remove it from the MacOS quarantine
    $xattr -d com.apple.quarantine  libCopasiJava.jnilib
  Double check the quarantine list to ensure it is not listed anymore:
    $xattr libCopasiJava.jnilib
+
