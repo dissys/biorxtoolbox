@@ -13,6 +13,7 @@ IMAGE_FOLDER = "../output/images/";
 HEATMAP_FOLDER = "../output/heatmap/";
 heatmapFile = 'heatmapfile.mat';
 
+
 %% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
 generateAll(alpha,delay ,M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER)
 
@@ -32,7 +33,7 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 matFileName_zeros = generateOne(alpha_periodFinder,tshift_periodFinder,0,signalDur_periodFinder,bitSeq_periodFinder, TEST_DATA_FOLDER,PLOT_FOLDER) %TODO Check these parameters            
 
 %% Figure 3B, A>0,B>0, The third bit is set to 1 only.
-%Creates A2975000_B0_K_TS1500_Seq0010000000000_TShift900.mat for the plotter example
+%Creates A2975000_B525000_K_TS1500_Seq0010000000000_TShift900.mat for the plotter example
 generateOne(0.15,900,M,signalDur,oneBitSeq, TEST_DATA_FOLDER,PLOT_FOLDER)            
 
 %% Figure 5, the ouput without the ISI minimised. A=M, B=0
@@ -63,6 +64,7 @@ myheatmap(HEATMAP_FOLDER, heatmapFile, "heatmap1.png");
 % Figure 3A, A,B=0, Initial state. Creates A3000000_B0_K_TS3000_Seq0000000_TShift100.mat
 plotter(0, 0,signalDur_periodFinder,bitSeq_periodFinder,tshift_periodFinder,PLOT_FOLDER, IMAGE_FOLDER);
 
+%%
 % Figure 3B, A>0,B>0, The third bit is set to 1 only.
 plotter(M*(1-0.15), M*0.15,signalDur,oneBitSeq,900,PLOT_FOLDER, IMAGE_FOLDER);
 

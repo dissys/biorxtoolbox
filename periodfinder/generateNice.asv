@@ -38,12 +38,12 @@ for a= alpha
         %%%            
             % * the signals with longer symbol duration than maxPeriod
             % parameter are not gonna be simulated.
-        disp('Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay) + ", alpha:" + sprintf("%.0f",a)  + ", delay:" + sprintf("%.0f",d) + ", A:" + sprintf("%.0f",M*(1-a)) + ", B:" + sprintf("%.0f",M*a))            
+        %GMGMdisp('Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay) + ", alpha:" + sprintf("%.0f",a)  + ", delay:" + sprintf("%.0f",d) + ", A:" + sprintf("%.0f",M*(1-a)) + ", B:" + sprintf("%.0f",M*a))            
 
         if(intDelay < maxperiod && intDelay > 1)
             counter = counter +1;        
-            disp('   Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay))            
-            generateOne(a,d,M,intDelay,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER)                                  
+            disp('   Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay) + ", signal duration:" + sprintf("%.0f",intDelay) )            
+            %GMGMgenerateOne(a,d,M,intDelay,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER)                                  
         end
     end
 end

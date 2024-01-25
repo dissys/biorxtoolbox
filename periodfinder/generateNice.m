@@ -42,7 +42,7 @@ for a= alpha
 
         if(intDelay < maxperiod && intDelay > 1)
             counter = counter +1;        
-            disp('   Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay))            
+            disp('   Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay) + ", alpha:" + sprintf("%.2f",a) + ", delay:" + sprintf("%.0f",d) )            
             generateOne(a,d,M,intDelay,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER)                                  
         end
     end

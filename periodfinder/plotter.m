@@ -25,6 +25,7 @@ jpgFile = fullfile(imageFolder,strcat(name, ".png"));
 fullMatFileName = fullfile(plotFolder,  matFileName);
 if ~exist(fullMatFileName, 'file')
 	matFileName 
+    fullMatFileName
     error("does not exists!")
 else   
     s = load(fullMatFileName);

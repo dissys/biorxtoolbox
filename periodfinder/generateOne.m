@@ -131,8 +131,11 @@ counter = 0;
             csvwrite(char(strcat(TEST_DATA_FOLDER, dirName ,"/ARA_vals.csv")),floor(x.YData));     
            
             disp('Log  - ARA data are saved!')
-                        
-            status = system(char(strcat('java -cp ./dependencies/molsim_jars/mol6new4.jar:./dependencies/super-csv/*:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin/*:./dependencies/molsim_jars/* -Djava.library.path=".:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin" dissys.keele.ac.uk.App'," ",strcat(TEST_DATA_FOLDER, dirName))));
+            
+            javaCommand=strcat('java -cp ./dependencies/molsim_jars/mol6new4.jar:./dependencies/super-csv/*:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin/*:./dependencies/molsim_jars/* -Djava.library.path=".:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin" dissys.keele.ac.uk.App'," ",strcat(TEST_DATA_FOLDER, dirName));
+            javaCommand
+
+            status = system(char(javaCommand));
             status           
             disp('Log - VPR has been run!')
             disp('Log - Status(O: Success, 1: Error):' + sprintf("%.0f",status))
