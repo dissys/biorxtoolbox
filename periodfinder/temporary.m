@@ -12,15 +12,35 @@ TEST_DATA_FOLDER = "../output/testData/";
 PLOT_FOLDER = "../output/plotData/";
 IMAGE_FOLDER = "../output/images/";
 HEATMAP_FOLDER = "../output/heatmap/";
+TMP_FOLDER = "../output/tmp/";
 heatmapFile = 'heatmapfile.mat';
+showFigures=0;
+
+
+M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
+signalDur_periodFinder=3000; %TODO: This is a different from the original parameter. Double check
+tshift_periodFinder=100; %TODO: This is a different from the original parameter. Double check
+bitSeq_periodFinder="0000000"; %TODO Should not we use 13 bits?
+alpha_periodFinder=0;
+A_periodFinder= M_periodFinder * (1-alpha_periodFinder);
+B_periodFinder= M_periodFinder * alpha_periodFinder;
 
 
 %A2975000_B525000_K_TS1443_Seq0010111100101_TShift600
 %A2975000_B525000_K_TS1443_Seq0010111100101_TShift600.mat
 
-for a= alpha
-     for d= delay
-        disp('   Log: generateNice - i:' + ", alpha:" + sprintf("%0.2f",a) + ", delay:" + sprintf("%.0f",d))  
-     end
-          
-end
+%for a= alpha
+%     for d= delay
+%        disp('   Log: generateNice - i:' + ", alpha:" + sprintf("%0.2f",a) + ", delay:" + sprintf("%.0f",d))  
+%     end
+%end
+%set(gcf,'position',[500,500,1000,300])
+
+%generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
+
+
+matFileName_zeros = strcat(getName(A_periodFinder, B_periodFinder, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
+matFileName_zeros
+%allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile)
+
+
