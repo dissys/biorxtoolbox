@@ -39,8 +39,8 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 %generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 
-matFileName_zeros = strcat(getName(A_periodFinder, B_periodFinder, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
+matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
 matFileName_zeros
-%allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile)
+allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,1,TMP_FOLDER)
 
 

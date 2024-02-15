@@ -16,10 +16,10 @@ showFigures=0;
 heatmapFile = 'heatmapfile.mat';
 
 
-%% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
+%% Generates all the one shot signals with for each alpha and delay parameter pair
 generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER)
 
-%% Generates all the one shot signals with for each alpha and delay parameter pair
+%% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
 generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
 
 %% Parameters for when all bits are zero.
@@ -45,7 +45,7 @@ generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_
 generateOne(0.15,600,M,1425,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
-matFileName_zeros = strcat(getName(A_periodFinder, B_periodFinder, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
+matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
 allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile)
 
 %%%
