@@ -36,11 +36,17 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 %end
 %set(gcf,'position',[500,500,1000,300])
 
+%Example: For detailed input images - Intercellular (External) to intracellular (internal) signalling
 %generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 
-matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
-matFileName_zeros
-allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,1,TMP_FOLDER)
+%To generate images that show how symbol durations were calculated. The
+%data is then used to create the heatmap.
+%matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
+%matFileName_zeros
+%allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,1,TMP_FOLDER)
 
+
+% Figure 5, the ouput without the ISI minimised. A=M, B=0
+plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 

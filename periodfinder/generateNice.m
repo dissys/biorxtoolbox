@@ -13,7 +13,7 @@
 % * delay:          integer or array - # of seconds between emissions of IPTG and aTc
 % * M:              integer          - total # of molecules
 % * Max Period      integer          - maximum symbol duration desired
-function genNice = generateNice(alpha,delay,M,maxperiod,heatMapFile,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
+function genNice = generateNice(alpha,delay,M,maxperiod,heatMapFile,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 genNice = false;
 counter = 0;
 
@@ -43,7 +43,7 @@ for a= alpha
         if(intDelay < maxperiod && intDelay > 1)
             counter = counter +1;        
             disp('   Log: generateNice - i:' + sprintf("%.0f",i1)+ ", j:" + sprintf("%.0f",j1) + ", signal duration:" + sprintf("%.0f",intDelay) + ", alpha:" + sprintf("%.2f",a) + ", delay:" + sprintf("%.0f",d) )            
-            generateOne(a,d,M,intDelay,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER)                                  
+            generateOne(a,d,M,intDelay,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)                                  
         end
     end
 end
