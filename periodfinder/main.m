@@ -77,6 +77,7 @@ plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 plotter(M*(1-0.15), M*0.15,1425,bitSeqStr,600,PLOT_FOLDER, IMAGE_FOLDER); 
 
 %% Generates all the multi-bit signals with symbol durations less then maxPeriod.
+%Simulates the identified solutions that meets the fitness criteria (sd < maxPeriod)
 generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER);
 
 %% Plots all the signals simulated by generateNice
@@ -85,15 +86,29 @@ nicePlotter(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOL
 %% Calculates, sorts and display the signals with highest moleye score.
 res = MolEyeScore(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOLDER);
 
+%% Rank the scores
 B = sortrows(res,1,'descend'); 
 disp(num2str(B(1:5,:)));
+disp(num2str(B));
+
+moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");
+resultFile= fullfile(moleyeFolder,  "ranked.txt");
+
+num2str(B)
+
+fileID = fopen(resultFile,'w');
+fprintf(fileID,'%.1f\t %.2f\t %.f\t %.f\n', transpose(B));
             
 for k = 1:size(B,1)
     a=B(k,2);
-    d=B(k,2); 
-    duration=B(k,3);
+    d=B(k,3); 
+    duration=B(k,4);
     name = getName((1-a)*M,a*M, duration, d, bitSeqStr);
     score= B(k,1); 
     disp('Log - main: ' + name + ", score:" + sprintf("%.000f",score))
+    fprintf(fileID, name + ", Score:" + sprintf("%.000f",score) + '\n');
 end
+
+fclose(fileID);
+
 close all

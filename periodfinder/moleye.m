@@ -1,15 +1,15 @@
 function molEye = moleye(A,B,tShift,signalDuration,bitSeqStr,plotFolder,imageFolder)
 
-moleyeFolder=fullfile(imageFolder, "moleye")
+moleyeFolder=fullfile(imageFolder, "moleye");
 
 if ~exist(moleyeFolder, 'dir')
-    mkdir(moleyeFolder)
+    mkdir(moleyeFolder);
 end           
 
 bit_sequence = transpose(num2str(bitSeqStr) - '0');
 
-dirName= getName(A, B, signalDuration, tShift, bitSeqStr)
-matFileName = strcat(dirName,".mat")
+dirName= getName(A, B, signalDuration, tShift, bitSeqStr);
+matFileName = strcat(dirName,".mat");
                   
 % reads the file from plotData and plots the whole signal. 
 %I am not sure if this is the true density data we should use in moleye
@@ -28,9 +28,10 @@ end
 %commented code below. I thought data1 is our density data because it
 %looks like it. 
 %data1 is plotted in figure 1.
-dataB = s.signalData(:,7); %TODO: This is dataA. The code works correctly. Only the variable names should be updated.
-dataA = s.signalData(:,8); %TODO: This is dataB
+dataB = s.signalData(:,7); 
+dataA = s.signalData(:,8);
 time = s.t; %there is also a time variable in s. click on s in workspace to see
+
 
 %% here i am cutting the data1 into pieces and putting them in a matrix to 
 %%visualize moleye. Eg: for 7 bits, there will be 7 pieces.
@@ -46,27 +47,59 @@ for i = 1:length(bit_sequence)
 end
 
 period = length(dataA)/length(bit_sequence); % i redefined period because the data in data1 is sampled
+
 oneArray = zeros(period,count1);
 zeroArray = zeros(period,count0);
+blue=[0, 0.4470, 0.7410];
+%red= [0.8500, 0.3250, 0.0980]; %red
+%red=[0.4940 0.1840 0.5560] %purple
+%red=[0.9290 0.6940 0.1250] %orange
+%red=[0.4660 0.6740 0.1880] %green
+red=[0.6350 0.0780 0.1840];%darkred
 
 j = 1;
 k = 1;
-figMolEyeCont=figure('Name', matFileName + "_moleye_I_continuous")
-set(gcf, 'Position',  [100, 100, 1200, 400])
+figMolEyeCont=figure('Name', matFileName + "_moleye_I_continuous");
+set(gcf, 'Position',  [100, 100, 1200, 400]);
 xlabel("time(s)");
 grid on;
 ylabel("concentration(nmol)");
 
 hold on
 for i = 1:length(bit_sequence)   
-   if(i == 1)
-       plot(((i-1)*period)+1:i*period, dataA(((i-1)*period)+1:i*period) , "b",'LineWidth',2); 
-   elseif (bit_sequence(i) == 1)        
-       plot(((i-1)*period):i*period, dataA(((i-1)*period):i*period) , "b",'LineWidth',2);       
+   %if(i == 1)
+   %    plot(((i-1)*period)+1:i*period, dataA(((i-1)*period)+1:i*period) , "b",'LineWidth',2); 
+   %elseif (bit_sequence(i) == 1)        
+   %    plot(((i-1)*period):i*period, dataA(((i-1)*period):i*period) , "b",'LineWidth',2);       
+   %else        
+   %    plot(((i-1)*period):i*period, dataA(((i-1)*period):i*period) , "r",'LineWidth',2);       
+   %end   
+   
+   start=(i-1)*period;   
+   endPos=i*period;
+
+   %Matlab is one based. If i=1 start from t=1    
+   if (i==1)
+       start=start+1;
+   end
+      
+   if (bit_sequence(i) == 1)        
+       plot(start:endPos, dataA(start:endPos) , 'Color',blue,'LineWidth',2);       
    else        
-       plot(((i-1)*period):i*period, dataA(((i-1)*period):i*period) , "r",'LineWidth',2);       
+       plot(start:endPos, dataA(start:endPos) , 'Color', red,'LineWidth',2);       
    end   
 end
+
+%%Show the - and 1 bits at the top
+gray = [.3 .3 .3];   
+yl=ylim;
+bitDataYPosition=yl(2)+yl(2)*0.02 + 0.02; % yposition: figure height plus   
+
+for i=1:strlength(bitSeqStr)
+    xline(period * i,'--'); % Draw a vertical line for each signal (bit) duration
+    text(period * i - (period/2) ,bitDataYPosition,bitSeqStr{1}(i),'Color',gray,'FontSize',14);        
+end
+    
 
 saveas(figMolEyeCont,fullfile(moleyeFolder, figMolEyeCont.Name + ".png"));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,8 +124,8 @@ grid on;
 ylabel("concentration(nmol)");
 
 hold on
-plot(1:period, oneArray , "b",'LineWidth',1);
-plot(1:period, zeroArray , "r",'LineWidth',1);
+plot(1:period, oneArray , 'Color', blue, 'LineWidth',1);
+plot(1:period, zeroArray , 'Color', red, 'LineWidth',1);
 
 saveas(figMolEyes,fullfile(moleyeFolder, figMolEyes.Name + ".png"));
 
@@ -107,31 +140,40 @@ minOne = min(oneArray,[],2);
 maxZero = max(zeroArray,[],2);
 
 figSelectedMolEye=figure('Name', matFileName + "_moleye_III_selected");
-
-set(gcf, 'Position',  [100, 100, 400, 400])
+set(gcf, 'Position',  [100, 100, 400, 400]);
 xlabel("time(s)");
 grid on;
 ylabel("concentration(nmol)");
 hold on
-plot(1:period,minOne(:,1), "b",'LineWidth',2);
-plot(1:period,maxZero(:,1), "r",'LineWidth',2);
+plot(1:period,minOne(:,1), 'Color', blue,'LineWidth',2);
+plot(1:period,maxZero(:,1), 'Color',red,'LineWidth',2);
 
 saveas(figSelectedMolEye,fullfile(moleyeFolder, figSelectedMolEye.Name + ".png"));
 
-
 difference = minOne - maxZero;
+gray = [.3 .3 .3];
+  
 %please note that if the difference between minimum of ones and maximum of
 %zeros are below zero, i dont sum that value up. then i multiplied with the
 %deltaT, difference of seconds between 2 samples.
 for i = 1:period
     if (difference(i) < 0) 
         difference(i) = 0;
+      %xline(i,maxZero(i),minOne(i),'--'); % Draw a vertical line for each signal (bit) duration
+    else
+      %xline(i,'--',20,40); % Draw a vertical line for each signal (bit) duration
+      plot([i i],[maxZero(i) minOne(i)],'Color',gray);
     end
 end
+
+%figSelectedMolEyeWithDifference=figure('Name', matFileName + "_moleye_IV_selectedWithDifference");
+name=matFileName + "_moleye_IV_selectedWithDifference";
+saveas(figSelectedMolEye,fullfile(moleyeFolder, name + ".png"));
 deltaT = time(2)-time(1);
 score = sum(difference)*deltaT;
-disp('Log - moleye - file: ' + matFileName + ", score:" + sprintf("%.000f",score) + ", deltaT:" + sprintf("%.0f",deltaT) + ", difference:" + sprintf("%.0f,",sum(difference)))
+disp('Log - moleye - file: ' + matFileName + ", score:" + sprintf("%.000f",score) + ", deltaT:" + sprintf("%.3f",deltaT) + ", difference:" + sprintf("%.0f,",sum(difference)))
 molEye = score;
+
 
 
 

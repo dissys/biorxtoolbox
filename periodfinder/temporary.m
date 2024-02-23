@@ -48,5 +48,13 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 
 
 % Figure 5, the ouput without the ISI minimised. A=M, B=0
-plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
+%plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
+
+
+figure
+x=[0,1,2,3,4,5,6,7,8,9,10,11,12];
+x(1)
+x(6)
+y=[5,6,7,8,9,10,11,12,10,9,6,7,7]
+plot(x,y);
 

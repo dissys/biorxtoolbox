@@ -16,10 +16,10 @@ showFigures=0;
 heatmapFile = 'heatmapfile.mat';
 
 
-%% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
+%% Generates all the one shot signals with for each alpha and delay parameter pair
 generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER)
 
-%% Generates all the one shot signals with for each alpha and delay parameter pair
+%% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
 generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
 
 %% Parameters for when all bits are zero.
@@ -45,8 +45,8 @@ generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_
 generateOne(0.15,600,M,1425,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
-matFileName_zeros = strcat(getName(A_periodFinder, B_periodFinder, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
-allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile)
+matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
+allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,showFigures,TMP_FOLDER)
 
 %%%
 %* plots all the one bit signals
@@ -77,7 +77,8 @@ plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 plotter(M*(1-0.15), M*0.15,1425,bitSeqStr,600,PLOT_FOLDER, IMAGE_FOLDER); 
 
 %% Generates all the multi-bit signals with symbol durations less then maxPeriod.
-generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER);
+%Simulates the identified solutions that meets the fitness criteria (sd < maxPeriod)
+generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER);
 
 %% Plots all the signals simulated by generateNice
 nicePlotter(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOLDER);
@@ -85,15 +86,27 @@ nicePlotter(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOL
 %% Calculates, sorts and display the signals with highest moleye score.
 res = MolEyeScore(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOLDER);
 
+%% Rank the scores
 B = sortrows(res,1,'descend'); 
 disp(num2str(B(1:5,:)));
+disp(num2str(B));
+
+moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");
+resultFile= fullfile(moleyeFolder,  "ranked.txt");
+
+num2str(B)
+
+fileID = fopen(resultFile,'w');
+fprintf(fileID,'%d %d %d %d', num2str(B));
+fclose(fileID);
             
 for k = 1:size(B,1)
     a=B(k,2);
-    d=B(k,2); 
-    duration=B(k,3);
+    d=B(k,3); 
+    duration=B(k,4);
     name = getName((1-a)*M,a*M, duration, d, bitSeqStr);
     score= B(k,1); 
     disp('Log - main: ' + name + ", score:" + sprintf("%.000f",score))
 end
+
 close all

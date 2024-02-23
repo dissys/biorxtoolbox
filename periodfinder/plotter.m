@@ -50,14 +50,16 @@ else
     gray = [.3 .3 .3];   
     lightyellow="#FFE5B4";
     yl=ylim;
-    bitDataYPosition=yl(2) + 5;
+    bitDataYPosition=yl(2) + 5; % yposition: figure height plus 5
     for i=1:strlength(bitSeqStr)
-        xline(signalDuration * i,'--');
+        xline(signalDuration * i,'--'); % Draw a vertical line for each signal (bit) duration
         text(signalDuration * i - (signalDuration/2) ,bitDataYPosition,bitSeqStr{1}(i),'Color',gray,'FontSize',14);        
     end
-
+    %Colour the warm up period
     r=rectangle('Position',[0,0,signalDuration*2,yl(2)]);%'FaceColor',[0.7,0.7,0.7])
     r.FaceColor=lightyellow;
+    r.EdgeColor='none';
+    %Remove the previous plots and redraw them so that they appear on top
     delete(p1);
     delete(p2);
     legend('AutoUpdate','on');            
