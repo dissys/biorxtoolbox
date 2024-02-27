@@ -38,8 +38,11 @@ counter = 0;
             
             mkdir(char(strcat(TEST_DATA_FOLDER,dirName)));
             imageFolder=strcat(TMP_FOLDER,dirName);
-            mkdir(char(imageFolder));
-           
+            
+            if (showFigures==1)            
+                mkdir(char(imageFolder));
+            end
+
             IPTG_params.Dico = 600;
             IPTG_params.d = 200;
             IPTG_params.rRx = 2;            
@@ -76,7 +79,8 @@ counter = 0;
             %error('gmgm')
 
           
-            javaCommand=strcat('java -cp ./dependencies/molsim_jars/mol6new4.jar:./dependencies/super-csv/*:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin/*:./dependencies/molsim_jars/* -Djava.library.path=".:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin" dissys.keele.ac.uk.App'," ",strcat(TEST_DATA_FOLDER, dirName));
+            %GM: vpr2.5 javaCommand=strcat('java -cp ./dependencies/molsim_jars/mol6new4.jar:./dependencies/super-csv/*:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin/*:./dependencies/molsim_jars/* -Djava.library.path=".:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin" dissys.keele.ac.uk.App'," ",strcat(TEST_DATA_FOLDER, dirName));
+            javaCommand=strcat('java -cp ./dependencies/molsim_jars/molsim7.jar:./dependencies/super-csv/*:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin/*:./dependencies/molsim_jars/* -Djava.library.path=".:./dependencies/COPASI-4.23.184-Java-Bindings-Darwin" dissys.keele.ac.uk.App'," ",strcat(TEST_DATA_FOLDER, dirName));
             javaCommand
 
             status = system(char(javaCommand));

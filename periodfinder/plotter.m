@@ -50,7 +50,8 @@ else
     gray = [.3 .3 .3];   
     lightyellow="#FFE5B4";
     yl=ylim;
-    bitDataYPosition=yl(2) + 5; % yposition: figure height plus 5
+    %bitDataYPosition=yl(2) + 5; % yposition: figure height plus 5
+    bitDataYPosition=yl(2)+yl(2)*0.02 + 0.02;
     for i=1:strlength(bitSeqStr)
         xline(signalDuration * i,'--'); % Draw a vertical line for each signal (bit) duration
         text(signalDuration * i - (signalDuration/2) ,bitDataYPosition,bitSeqStr{1}(i),'Color',gray,'FontSize',14);        

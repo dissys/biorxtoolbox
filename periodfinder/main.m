@@ -17,10 +17,10 @@ heatmapFile = 'heatmapfile.mat';
 
 
 %% Generates all the one shot signals with for each alpha and delay parameter pair
-generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER)
+generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
-generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
+%generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Parameters for when all bits are zero.
 M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
@@ -93,8 +93,6 @@ disp(num2str(B));
 
 moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");
 resultFile= fullfile(moleyeFolder,  "ranked.txt");
-
-num2str(B)
 
 fileID = fopen(resultFile,'w');
 fprintf(fileID,'%.1f\t %.2f\t %.f\t %.f\n', transpose(B));

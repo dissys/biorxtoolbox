@@ -14,7 +14,7 @@ IMAGE_FOLDER = "../output/images/";
 HEATMAP_FOLDER = "../output/heatmap/";
 TMP_FOLDER = "../output/tmp/";
 heatmapFile = 'heatmapfile.mat';
-showFigures=0;
+showFigures=1;
 
 
 M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
@@ -37,7 +37,7 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 %set(gcf,'position',[500,500,1000,300])
 
 %Example: For detailed input images - Intercellular (External) to intracellular (internal) signalling
-%generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
+generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 
 %To generate images that show how symbol durations were calculated. The
@@ -51,10 +51,10 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 %plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 
 
-figure
-x=[0,1,2,3,4,5,6,7,8,9,10,11,12];
-x(1)
-x(6)
-y=[5,6,7,8,9,10,11,12,10,9,6,7,7]
-plot(x,y);
+%figure
+%x=[0,1,2,3,4,5,6,7,8,9,10,11,12];
+%x(1)
+%x(6)
+%y=[5,6,7,8,9,10,11,12,10,9,6,7,7]
+%plot(x,y);
 
