@@ -17,10 +17,10 @@ heatmapFile = 'heatmapfile.mat';
 
 
 %% Generates all the one shot signals with for each alpha and delay parameter pair
-generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER)
+generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
-generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
+%generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Parameters for when all bits are zero.
 M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
@@ -94,12 +94,11 @@ disp(num2str(B));
 moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");
 resultFile= fullfile(moleyeFolder,  "ranked.txt");
 
-num2str(B)
-
 fileID = fopen(resultFile,'w');
-fprintf(fileID,'%d %d %d %d', num2str(B));
-fclose(fileID);
+fprintf(fileID,'Score\t Alpha\t Delay\t TS\n');
+fprintf(fileID,'%.1f\t %.2f\t %.f\t %.f\n', transpose(B));
             
+fprintf(fileID,'\n\nSolution\tScore\n');
 for k = 1:size(B,1)
     a=B(k,2);
     d=B(k,3); 
@@ -107,6 +106,9 @@ for k = 1:size(B,1)
     name = getName((1-a)*M,a*M, duration, d, bitSeqStr);
     score= B(k,1); 
     disp('Log - main: ' + name + ", score:" + sprintf("%.000f",score))
+    fprintf(fileID, name + "\t" + sprintf("%.000f",score) + '\n');
 end
+
+fclose(fileID);
 
 close all

@@ -95,8 +95,10 @@ moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");
 resultFile= fullfile(moleyeFolder,  "ranked.txt");
 
 fileID = fopen(resultFile,'w');
+fprintf(fileID,'Score\t Alpha\t Delay\t TS\n');
 fprintf(fileID,'%.1f\t %.2f\t %.f\t %.f\n', transpose(B));
             
+fprintf(fileID,'\nScore\tSolution\n');
 for k = 1:size(B,1)
     a=B(k,2);
     d=B(k,3); 
@@ -104,7 +106,7 @@ for k = 1:size(B,1)
     name = getName((1-a)*M,a*M, duration, d, bitSeqStr);
     score= B(k,1); 
     disp('Log - main: ' + name + ", score:" + sprintf("%.000f",score))
-    fprintf(fileID, name + ", Score:" + sprintf("%.000f",score) + '\n');
+    fprintf(fileID, sprintf("%.1f",score) + "\t" + name +  '\n');
 end
 
 fclose(fileID);
