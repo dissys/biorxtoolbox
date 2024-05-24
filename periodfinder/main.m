@@ -41,7 +41,7 @@ generateOne(0.15,900,M,signalDur,oneBitSeq, TEST_DATA_FOLDER,PLOT_FOLDER,showFig
 %% Figure 5, the ouput without the ISI minimised. A=M, B=0
 generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)            
 
-%% Figure 7, the ouput without the ISI minimised. A, B >0
+%% Figure 7, the ouput with the ISI minimised. A, B >0
 generateOne(0.15,600,M,1425,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
