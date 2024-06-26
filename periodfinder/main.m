@@ -23,26 +23,23 @@ generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER,
 %generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Parameters for when all bits are zero.
-M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
-signalDur_periodFinder=3000; %TODO: This is a different from the original parameter. Double check
-tshift_periodFinder=100; %TODO: This is a different from the original parameter. Double check
-bitSeq_periodFinder="0000000"; %TODO Should not we use 13 bits?
+M_periodFinder = 3000000;
+signalDur_periodFinder=3000; 
+tshift_periodFinder=100;
+bitSeq_periodFinder="0000000"; 
 alpha_periodFinder=0;
 A_periodFinder= M_periodFinder * (1-alpha_periodFinder);
 B_periodFinder= M_periodFinder * alpha_periodFinder;
 
-%% Figure 3A, A,B=0, Initial state. Creates A0_B0_K_TS3000_Seq0000000_TShift100.mat
-matFileName_zeros = generateOne(alpha_periodFinder,tshift_periodFinder,0,signalDur_periodFinder,bitSeq_periodFinder, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER) %TODO Check these parameters            
+%% Figure 4A (Previously 3A), A,B=0, Initial state. Creates A0_B0_K_TS3000_Seq0000000_TShift100.mat
+matFileName_zeros = generateOne(alpha_periodFinder,tshift_periodFinder,0,signalDur_periodFinder,bitSeq_periodFinder, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER) 
 
-%% Figure 3B, A>0,B>0, The third bit is set to 1 only.
+%% Figure 4B (Previously 3B), A>0,B>0, The third bit is set to 1 only.
 %Creates A2975000_B525000_K_TS1500_Seq0010000000000_TShift900.mat for the plotter example
 generateOne(0.15,900,M,signalDur,oneBitSeq, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)            
 
-%% Figure 5, the ouput without the ISI minimised. A=M, B=0
+% Figure 8A(Previously 5), the ouput without the ISI minimised. A=M, B=0
 generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)            
-
-%% Figure 7, the ouput with the ISI minimised. A, B >0
-generateOne(0.15,600,M,1425,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
 matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
@@ -63,18 +60,15 @@ myheatmap(HEATMAP_FOLDER, heatmapFile, "heatmap1.png");
 
 %% Plots spesific signals such as the initial states.
 
-% Figure 3A, A,B=0, Initial state. Creates A3000000_B0_K_TS3000_Seq0000000_TShift100.mat
+% Figure 4A (Previously 3A), A,B=0, Initial state. Creates A3000000_B0_K_TS3000_Seq0000000_TShift100.mat
 plotter(0, 0,signalDur_periodFinder,bitSeq_periodFinder,tshift_periodFinder,PLOT_FOLDER, IMAGE_FOLDER);
 
-%%
-% Figure 3B, A>0,B>0, The third bit is set to 1 only.
+% Figure 4B (Previously 3B), A>0,B>0, The third bit is set to 1 only.
 plotter(M*(1-0.15), M*0.15,signalDur,oneBitSeq,900,PLOT_FOLDER, IMAGE_FOLDER);
 
-% Figure 5, the ouput without the ISI minimised. A=M, B=0
+% Figure 8A(Previously 5), the ouput without the ISI minimised. A=M, B=0
 plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 
-% Figure 7, the ouput without the ISI minimised. A, B >0
-plotter(M*(1-0.15), M*0.15,1425,bitSeqStr,600,PLOT_FOLDER, IMAGE_FOLDER); 
 
 %% Generates all the multi-bit signals with symbol durations less then maxPeriod.
 %Simulates the identified solutions that meets the fitness criteria (sd < maxPeriod)

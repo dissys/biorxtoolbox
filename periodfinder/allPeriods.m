@@ -109,7 +109,7 @@ for a = alpha
         
         %%%
         % * finding the intervals where rate is close to base rate
-        [pks,locs] = findpeaks(rate); %TODO: Not used in the rest of the text        
+        [pks,locs] = findpeaks(rate); %TODO: Not used later!       
         [M,I] = max(rate); % M:max(Bin/Ain), I:t
         [M1,I1] = max(dataB);% M1:max(Ain), I1:t
         % The simulation duration is split into 1000 intervals. 

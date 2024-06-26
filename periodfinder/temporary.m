@@ -17,10 +17,10 @@ heatmapFile = 'heatmapfile.mat';
 showFigures=1;
 
 
-M_periodFinder = 3000000;%TODO: This is a different from the original parameter. Double check
-signalDur_periodFinder=3000; %TODO: This is a different from the original parameter. Double check
-tshift_periodFinder=100; %TODO: This is a different from the original parameter. Double check
-bitSeq_periodFinder="0000000"; %TODO Should not we use 13 bits?
+M_periodFinder = 3000000;
+signalDur_periodFinder=3000;
+tshift_periodFinder=100; 
+bitSeq_periodFinder="0000000"; 
 alpha_periodFinder=0;
 A_periodFinder= M_periodFinder * (1-alpha_periodFinder);
 B_periodFinder= M_periodFinder * alpha_periodFinder;
