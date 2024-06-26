@@ -14,7 +14,7 @@
 % * offset:         integer          - to start the algorithm in the middle (giving 0 value starts it from the beginning)
 % * signal duration:integer          - initial signal duration (not optimized yet). should be long enough to observe one full signal.
 
-function genAll = generateAll(alpha,delay,M,offset,signalDuration,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER)
+function genAll = generateAll(alpha,delay,M,offset,signalDuration,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 genAll = false;
 counter = 0;
 
@@ -26,7 +26,7 @@ for a = alpha
         counter = counter +1;    
         counter
         if (counter > offset)  
-            generateOne(a,d,M,signalDuration,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER)             
+            generateOne(a,d,M,signalDuration,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)             
         end
         
     end

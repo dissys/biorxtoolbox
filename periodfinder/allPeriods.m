@@ -16,7 +16,7 @@
 % * offset:         integer          - to start the algorithm in the middle (giving 0 value starts it from the beginning)
 % * signal duration:integer          - initial signal duration (not optimized yet). should be long enough to observe one full signal.
 
-function periodFinder = allPeriods(alpha, delay, Mol,signalDuration, plotFolder,matFileName_zeros,bit_sequence_zeros, oneBitSeq,heatmapFile)
+function periodFinder = allPeriods(alpha, delay, Mol,signalDuration, plotFolder,matFileName_zeros,bit_sequence_zeros, oneBitSeq,heatmapFile,showFigures, TMP_FOLDER)
 
 %%% 
 % * Reading the base state cell data
@@ -36,31 +36,36 @@ else
     disp('Log - PeriodFinder: Loading the mat file ' +  matFileName_zeros);
 end
 
-dataA_zeros = s_zeros.signalData(:,7);
-dataB_zeros = s_zeros.signalData(:,8);
+%Data was sampled using 1001 values to create 1000 time intervals in
+%GenerateOne. Hence the length of time_zeros,dataA_zeros and dataB_zeros
+%are 1001.
+dataA_zeros = s_zeros.signalData(:,7); %TODO: B_in
+dataB_zeros = s_zeros.signalData(:,8); %TODO: A_in
 
 time_zeros = s_zeros.t; % there is also a time variable in s. click on s in workspace to see
+%time_zeros
 
-period = length(time_zeros)/length(bit_sequence_zeros);
+%Period=1001/7bits=143
+period = length(time_zeros)/strlength(bit_sequence_zeros);
 
 %%%
-% * calculating the ratio of IPTG/aTc in the base state of the cell.
+% Calculating the ratio of Bin/Ain in the base state of the cell.
+% rate2: The Bin/Ain rate when the simulation ends.
 rate2 = dataA_zeros(length(dataA_zeros))/dataB_zeros(length(dataB_zeros));
-rate2
-%TODO: Replaced the following line. length(dataA_zeros)=1001, period=0.
-%Hence the difference is zero. The array(0) will throw an error since the
-%arrays are 1 based in Matlab. As a solution. I used the first nonzero row.
-%rate1 = dataA_zeros(length(dataA_zeros)-period)/dataB_zeros(length(dataB_zeros)-period);
-rate1 = dataA_zeros(length(dataA_zeros)-period +2)/dataB_zeros(length(dataB_zeros)-period +2);
-rate1
 
-if(rate1 - rate2 < 0.001)%TODO: rate1-rate2 is currently negative. Is it ok to proceed here. What does 0.001 mean? Rate2: 4.8667, Rate1:2.6582
+rate1 = dataA_zeros(length(dataA_zeros)-period)/dataB_zeros(length(dataB_zeros)-period);
+
+%Compare the final rate with the previous bit's value. If the difference is
+%significant, then the the system has not reached the equilibrium yet.
+if(rate1 - rate2 < 0.001) %e.g. both rates are 4.8688
     zero_rate = rate2;
 else
     message="rate is not steady, give a longer time for stabilization";
     error(message)
 end
 
+disp('Zero rate: ' + sprintf("%.5f",zero_rate));
+     
 col = 0;
 row = 0;
 
@@ -74,7 +79,7 @@ for a = alpha
     for d= delay
         row = row +1;        
         counter = counter +1;       
-               
+              
         %%% 
         % * Reading one of the one-bit signal data    
         AMol = Mol*(1-a);
@@ -82,6 +87,7 @@ for a = alpha
         
         dirName= getName(AMol, BMol, signalDuration, d, oneBitSeq);
         matFileName = strcat(dirName,".mat");
+        disp('Log - Calculating rate values for ' + matFileName +  " - alpha:" + sprintf("%.3f,",a) + " delay:" + sprintf("%.0f",d));
                                
         fullMatFileName = fullfile(plotFolder,  matFileName);
         if ~exist(fullMatFileName, 'file')
@@ -98,15 +104,37 @@ for a = alpha
         %%%
         % * calculating the current rate of IPTG and aTc
         rate = dataA ./ dataB;
-        disp('Log - onebit_A/B_ratio: ' + sprintf("%.3f,",rate) + "\talpha:" + sprintf("%.3f,",a) + "\tdelay:" + sprintf("%.3f,",d))
+       
+        disp('Log - onebit_A/B_ratio: ' + sprintf("%.3f,",rate));
         
         %%%
         % * finding the intervals where rate is close to base rate
-        [pks,locs] = findpeaks(rate); %TODO: Not used in the rest of the text        
-        [M,I] = max(rate);
-        [M1,I1] = max(dataB);
-        deltaT = time(2)-time(1);
-               
+        [pks,locs] = findpeaks(rate); %TODO: Not used later!       
+        [M,I] = max(rate); % M:max(Bin/Ain), I:t
+        [M1,I1] = max(dataB);% M1:max(Ain), I1:t
+        % The simulation duration is split into 1000 intervals. 
+        % For 13 bits with 1500 symbol duration deltaT: (13*1500)/1000=19.5
+        deltaT = time(2)-time(1); 
+
+        %GM: For debugging only:
+        %if d==900    
+            
+        %    max(rate)
+        %    M
+        %    I
+        %    M1
+        %    I1
+        %    plot(dataB)
+        %    plot(dataA)
+        %    plot(rate);
+        
+        %    error ('gmgmx')
+        %end
+         
+        %Find the minimum t that comes after the I1 time point (when
+        %Bin/Ain is maximum) and after the I2 time point (when Ai is the
+        %maximum). Condition: The rate should be within minus or plus 5% of
+        %the zero rate (the rate at the native state)
         newdata = [];
         j=1;
         for i = 1:length(rate)
@@ -118,7 +146,29 @@ for a = alpha
             end
         end
         
-        %length(time)/strlength(oneBitSeq): Timepoints allocated to each bit
+        minSufficientTimePoint=min(newdata);
+        onebitPeriod=length(time)/strlength(oneBitSeq);
+
+        imageFolder=strcat(TMP_FOLDER,dirName);
+        mkdir(char(imageFolder));           
+        figureParameters.showFigures=showFigures;
+        figureParameters.index=1;
+        figureParameters.x=100;
+        figureParameters.y=100;
+        figureParameters.imageFolder=imageFolder;
+        figureParameters.prefix='OptimiseDuration';
+       
+        %if d==1000 && a==0.15          
+            figureParameters=displayFigure(figureParameters, dataA, 'BinScaled');
+            figureParameters=displayFigure(figureParameters, dataB, 'AinScaled');            
+            figureParameters=saveRateFigure(figureParameters, rate, 'rateScaled',I,I1,minSufficientTimePoint,onebitPeriod, oneBitSeq);
+            %f=gcf;
+            %f.Visible='on';
+            %error ('gmgm');
+       % end
+
+        %length(time)/strlength(oneBitSeq): Timepoints allocated to each
+        %bit:1000/13
         %length(time)/strlength(oneBitSeq) * 2: Take out the timepoints for
         %the first two bits that start with zero (00100...)
         %min(newdata): Includes the time point for the end of the signal
@@ -131,15 +181,18 @@ for a = alpha
         
         % * Finding the interval with minimum symbol duration and saving it
         % if its lss the 15000 seconds. 
-        rsl=(min(newdata)-(length(time)/strlength(oneBitSeq))*(2))*deltaT;
+        %rsl=(min(newdata)-(length(time)/strlength(oneBitSeq))*(2))*deltaT;
+        rsl=(minSufficientTimePoint-(onebitPeriod*2))*deltaT;
+        
 
         if(~isempty(rsl) && rsl < 15000)
             result(col,row)=rsl;
-        end
+        end        
     end
 
 end
 result
+
 save(heatmapFile,'result', 'alpha','delay');
 periodFinder = true;
 
