@@ -28,13 +28,13 @@ if (figureParams.showFigures==1) % If showFigures is true
     
     
     %text(I-8,labelOffsetYAxis,'max(rate)');
-    text(I-8,labelOffsetYAxis,'t_{Rm}', 'Color',gray,'FontSize',8);
+    text(I-8,labelOffsetYAxis,'t_{B}', 'Color',gray,'FontSize',8);
        
     plot(I1,0,'bx');
-    text(I1-8,labelOffsetYAxis,'t_{Am}','Color',gray,'FontSize',8);
+    text(I1-8,labelOffsetYAxis,'t_{A}','Color',gray,'FontSize',8);
 
     plot(minSufficientTime,0,'b*');
-    text(minSufficientTime-20,labelOffsetYAxis,'t_{R0}','Color',gray,'FontSize',8);
+    text(minSufficientTime-8,labelOffsetYAxis,'t_{R}','Color',gray,'FontSize',8);
     for i=1:strlength(oneBitSeq)        
         plot(onebitPeriod*i,0,'b.');
     end

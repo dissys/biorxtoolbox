@@ -6,6 +6,7 @@ if (figureParams.showFigures==1) % If showFigures is true
     f=figure (Name=longName);
     f.Visible='off';
     set(gcf,'position',[figureParams.x,figureParams.y,400,200]);
+    %set(gca, 'FontSize', 14)    
     plot(data) ;
     title(strcat(figureParams.prefix,'-', int2str(figureParams.index), '-', strrep(name,'_','-')));    
     figureParams.index=figureParams.index + 1;%Figure number

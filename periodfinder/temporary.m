@@ -38,7 +38,9 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 
 %Example: For detailed input images - Intercellular (External) to intracellular (internal) signalling
 %generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
-%generateOne(0,600,M,1443,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
+
+%Figure 8A
+generateOne(0,600,M,1443,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 plotter(M,0,1443,bitSeqStr,600,PLOT_FOLDER, IMAGE_FOLDER);
 
 

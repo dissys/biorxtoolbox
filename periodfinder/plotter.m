@@ -32,14 +32,18 @@ else
     s = load(fullMatFileName);
     figure1 = figure('Name', matFileName);
     set(gcf, 'Position',  [100, 100, 1200, 400])
-    xlabel("time (s)");
+    set(gca, 'FontSize', 14)
+    
+    xlabel("Time (s)", 'FontSize',14);
     grid on;
-    ylabel("concentration(nmol)");
+    %ylabel("Concentration (nmol)", 'FontSize',14);
+    ylabel("Particle numbers", 'FontSize',14);
+    
    
     hold on
-    p1=plot(s.t,s.signalData(:,8),'LineWidth',2,'DisplayName','A_{in}');
+    p1=plot(s.t,s.signalData(:,8),'LineWidth',2,'DisplayName','A_{i}');
     aColor=p1.Color;
-    p2=plot(s.t,s.signalData(:,7),'LineWidth',2,'DisplayName','B_{in}');
+    p2=plot(s.t,s.signalData(:,7),'LineWidth',2,'DisplayName','B_{i}');
     bColor=p2.Color;
     
     legend
@@ -64,8 +68,8 @@ else
     delete(p1);
     delete(p2);
     legend('AutoUpdate','on');            
-    plot(s.t,s.signalData(:,8),'LineWidth',2,'DisplayName','A_{in}','Color',aColor);
-    plot(s.t,s.signalData(:,7),'LineWidth',2,'DisplayName','B_{in}','Color',bColor);
+    plot(s.t,s.signalData(:,8),'LineWidth',2,'DisplayName','A_{i}','Color',aColor);
+    plot(s.t,s.signalData(:,7),'LineWidth',2,'DisplayName','B_{i}','Color',bColor);
     legend;
         
     saveas(figure1,jpgFileAnnotated);    
