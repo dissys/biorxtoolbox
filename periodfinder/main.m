@@ -42,8 +42,9 @@ generateOne(0.15,900,M,signalDur,oneBitSeq, TEST_DATA_FOLDER,PLOT_FOLDER,showFig
 generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)            
 
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
+disp('Calculating optimum symbol durations...')
 matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
-allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,showFigures,TMP_FOLDER)
+allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,1,TMP_FOLDER)
 
 %%%
 %* plots all the one bit signals
@@ -72,7 +73,7 @@ plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 
 %% Generates all the multi-bit signals with symbol durations less then maxPeriod.
 %Simulates the identified solutions that meets the fitness criteria (sd < maxPeriod)
-generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER);
+generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,1,TMP_FOLDER);
 
 %% Plots all the signals simulated by generateNice
 nicePlotter(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOLDER);

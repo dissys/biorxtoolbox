@@ -66,10 +66,11 @@ j = 1;
 k = 1;
 figMolEyeCont=figure('Name', matFileName + "_moleye_I_continuous");
 set(gcf, 'Position',  [100, 100, 1200, 400]);
-xlabel("time(s)");
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
-
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+   
 hold on
 for i = 1:length(bit_sequence)   
    %if(i == 1)
@@ -130,9 +131,11 @@ zeroArray=zeroArray(:,[1+numberOfWarmUpBits:end]);
 
 figMolEyes=figure('Name', matFileName + "_moleye_II_overlayed");
 set(gcf, 'Position',  [100, 100, 400, 400])
-xlabel("time(s)");
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+
 
 hold on
 plot(1:period, oneArray , 'Color', blue, 'LineWidth',1);
@@ -152,9 +155,12 @@ maxZero = max(zeroArray,[],2);
 
 figSelectedMolEye=figure('Name', matFileName + "_moleye_III_max_min");
 set(gcf, 'Position',  [100, 100, 400, 400]);
-xlabel("time(s)");
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+
+
 hold on
 plot(1:period,minOne(:,1), 'magenta','LineWidth',2);
 plot(1:period,maxZero(:,1), 'Color',darkgreen,'LineWidth',2);
@@ -164,9 +170,12 @@ saveas(figSelectedMolEye,fullfile(moleyeFolder, figSelectedMolEye.Name + ".png")
 
 figSelectedMolEye=figure('Name', matFileName + "_moleye_IV_max_min_vs_all");
 set(gcf, 'Position',  [100, 100, 400, 400]);
-xlabel("time(s)");
+
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+
 hold on
 plot(1:period,minOne(:,1), 'magenta','LineWidth',2);
 plot(1:period,maxZero(:,1), 'Color',darkgreen,'LineWidth',2);
@@ -181,9 +190,12 @@ gray = [.3 .3 .3];
 
 figScore=figure('Name', matFileName + "_moleye_V_max_min_difference");
 set(gcf, 'Position',  [100, 100, 400, 400]);
-xlabel("time(s)");
+
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+
 hold on
 plot(1:period,minOne(:,1), 'magenta','LineWidth',2);
 plot(1:period,maxZero(:,1), 'Color',[0 0.5 0],'LineWidth',2);
@@ -220,9 +232,12 @@ score = sum(difference)*deltaT;
 %% The area is marked using all min and max lines
 figScoreAllPlots=figure('Name', matFileName + "_moleye_VI_max_min_difference_allplots");
 set(gcf, 'Position',  [100, 100, 400, 400]);
-xlabel("time(s)");
+
+xlabel("Time (s)", 'FontSize',14);
 grid on;
-ylabel("concentration(nmol)");
+ylabel("Particle numbers", 'FontSize',14);
+set(gca, 'FontSize', 14)
+
 hold on
 %plot(1:period,minOne(:,1), 'magenta','LineWidth',2);
 %plot(1:period,maxZero(:,1), 'Color',[0 0.5 0],'LineWidth',2);
