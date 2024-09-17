@@ -4,42 +4,6 @@
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module"/>
     <sbol:displayId>abcomm_module</sbol:displayId>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/TetR_ATC">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/TetR_ATC"/>
-        <sbol:displayId>TetR_ATC</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/TetR_ATC"/>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
-      </sbol:FunctionalComponent>
-    </sbol:functionalComponent>
-    <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/B">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/B"/>
-        <sbol:displayId>B</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/B"/>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
-      </sbol:FunctionalComponent>
-    </sbol:functionalComponent>
-    <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsB">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsB"/>
-        <sbol:displayId>cdsB</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsB/1"/>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
-      </sbol:FunctionalComponent>
-    </sbol:functionalComponent>
-    <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsA">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsA"/>
-        <sbol:displayId>cdsA</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsA/1"/>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
-      </sbol:FunctionalComponent>
-    </sbol:functionalComponent>
-    <sbol:functionalComponent>
       <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/pTet">
         <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/pTet"/>
         <sbol:displayId>pTet</sbol:displayId>
@@ -67,37 +31,46 @@
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI"/>
-        <sbol:displayId>LacI</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsA">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsA"/>
+        <sbol:displayId>cdsA</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsA/1"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/ATC">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/ATC"/>
-        <sbol:displayId>ATC</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ATC"/>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
-      </sbol:FunctionalComponent>
-    </sbol:functionalComponent>
-    <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/TetR_Dimer">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/TetR_Dimer"/>
-        <sbol:displayId>TetR_Dimer</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/TetR_Dimer"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/B">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/B"/>
+        <sbol:displayId>B</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/B"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI_IPTG">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI_IPTG"/>
-        <sbol:displayId>LacI_IPTG</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI_IPTG"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/TetR_ATC">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/TetR_ATC"/>
+        <sbol:displayId>TetR_ATC</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/TetR_ATC"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsB">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsB"/>
+        <sbol:displayId>cdsB</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsB/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsTetR">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsTetR"/>
+        <sbol:displayId>cdsTetR</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsTetR/1"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
@@ -121,10 +94,19 @@
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/cdsTetR">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/cdsTetR"/>
-        <sbol:displayId>cdsTetR</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsTetR/1"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/A">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/A"/>
+        <sbol:displayId>A</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/A"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI_Tetramer">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI_Tetramer"/>
+        <sbol:displayId>LacI_Tetramer</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI_Tetramer"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
@@ -139,6 +121,15 @@
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/ATC">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/ATC"/>
+        <sbol:displayId>ATC</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ATC"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
       <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/AB">
         <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/AB"/>
         <sbol:displayId>AB</sbol:displayId>
@@ -148,19 +139,28 @@
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/A">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/A"/>
-        <sbol:displayId>A</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/A"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/TetR_Dimer">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/TetR_Dimer"/>
+        <sbol:displayId>TetR_Dimer</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/TetR_Dimer"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI_Tetramer">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI_Tetramer"/>
-        <sbol:displayId>LacI_Tetramer</sbol:displayId>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI_Tetramer"/>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI_IPTG">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI_IPTG"/>
+        <sbol:displayId>LacI_IPTG</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI_IPTG"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="http://virtualparts.org/abdesign/abcomm_module/LacI">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/abcomm_module/LacI"/>
+        <sbol:displayId>LacI</sbol:displayId>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/LacI"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
@@ -500,12 +500,48 @@
       </sbol:Interaction>
     </sbol:interaction>
   </sbol:ModuleDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pConstTetR/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstTetR"/>
-    <sbol:displayId>pConstTetR</sbol:displayId>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pLacI/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pLacI"/>
+    <sbol:displayId>pLacI</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <vpr:transcriptionRate>0.03</vpr:transcriptionRate>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/pLacI_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsTetR/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsTetR"/>
+    <sbol:displayId>cdsTetR</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/cdsTetR_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/AB">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/AB"/>
+    <sbol:displayId>AB</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbs2/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbs2"/>
+    <sbol:displayId>rbs2</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/rbs2_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pConstLacI/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstLacI"/>
+    <sbol:displayId>pConstLacI</sbol:displayId>
     <sbol:version>1</sbol:version>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/pConstLacI_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/ATC">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/ATC"/>
+    <sbol:displayId>ATC</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbsLacI/1">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbsLacI"/>
@@ -514,106 +550,7 @@
     <vpr:translationRate>0.015</vpr:translationRate>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pTet/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pTet"/>
-    <sbol:displayId>pTet</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <vpr:transcriptionRate>0.05</vpr:transcriptionRate>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/A_circuit/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit"/>
-    <sbol:displayId>A_circuit</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <vpr:copyNumber>10.0</vpr:copyNumber>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
-    <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2"/>
-        <sbol:displayId>rbsLacIC2</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbsLacI/1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/pLacIC1/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/pLacIC1"/>
-        <sbol:displayId>pLacIC1</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/pLacI/1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/ter1C4/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1C4"/>
-        <sbol:displayId>ter1C4</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ter1/1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3"/>
-        <sbol:displayId>cdsAC3</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsA/1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/ter1_cdsAC3/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1_cdsAC3"/>
-        <sbol:displayId>ter1_cdsAC3</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1"/>
-        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1C4/1"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/rbsLacI_pLacIC1/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacI_pLacIC1"/>
-        <sbol:displayId>rbsLacI_pLacIC1</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/pLacIC1/1"/>
-        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/cdsA_rbsLacIC2/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsA_rbsLacIC2"/>
-        <sbol:displayId>cdsA_rbsLacIC2</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1"/>
-        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/AB">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/AB"/>
-    <sbol:displayId>AB</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/ATC">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/ATC"/>
-    <sbol:displayId>ATC</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbsTetR/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbsTetR"/>
-    <sbol:displayId>rbsTetR</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <vpr:translationRate>0.0195</vpr:translationRate>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/rbsLacI_seq"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/Sensor_circuit/1">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit"/>
@@ -629,15 +566,6 @@
         <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ter1/1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/Sensor_circuit/rbs2C6/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit/rbs2C6"/>
-        <sbol:displayId>rbs2C6</sbol:displayId>
-        <sbol:version>1</sbol:version>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbs2/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
@@ -668,12 +596,12 @@
       </sbol:Component>
     </sbol:component>
     <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/Sensor_circuit/cdsTetRC7/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit/cdsTetRC7"/>
-        <sbol:displayId>cdsTetRC7</sbol:displayId>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/Sensor_circuit/rbs2C6/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit/rbs2C6"/>
+        <sbol:displayId>rbs2C6</sbol:displayId>
         <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsTetR/1"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbs2/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
@@ -683,6 +611,15 @@
         <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbs1/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:component>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/Sensor_circuit/cdsTetRC7/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit/cdsTetRC7"/>
+        <sbol:displayId>cdsTetRC7</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsTetR/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
@@ -764,20 +701,15 @@
         <sbol:object rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit/ter1C8/1"/>
       </sbol:SequenceConstraint>
     </sbol:sequenceConstraint>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit_seq"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsLacI/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsLacI"/>
-    <sbol:displayId>cdsLacI</sbol:displayId>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/ter1/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/ter1"/>
+    <sbol:displayId>ter1</sbol:displayId>
     <sbol:version>1</sbol:version>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pConstLacI/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstLacI"/>
-    <sbol:displayId>pConstLacI</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/ter1_seq"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/A">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A"/>
@@ -789,22 +721,27 @@
     <sbol:displayId>TetR</sbol:displayId>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
   </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsA/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsA"/>
+    <sbol:displayId>cdsA</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/cdsA_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbsTetR/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbsTetR"/>
+    <sbol:displayId>rbsTetR</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <vpr:translationRate>0.0195</vpr:translationRate>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/rbsTetR_seq"/>
+  </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI_Tetramer">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI_Tetramer"/>
     <sbol:displayId>LacI_Tetramer</sbol:displayId>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI_Dimer">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI_Dimer"/>
-    <sbol:displayId>LacI_Dimer</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/ter1/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/ter1"/>
-    <sbol:displayId>ter1</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/B_circuit/1">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit"/>
@@ -814,12 +751,12 @@
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
     <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/B_circuit/rbsTetRC2/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit/rbsTetRC2"/>
-        <sbol:displayId>rbsTetRC2</sbol:displayId>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/B_circuit/ter1C4/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit/ter1C4"/>
+        <sbol:displayId>ter1C4</sbol:displayId>
         <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbsTetR/1"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ter1/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
@@ -832,12 +769,12 @@
       </sbol:Component>
     </sbol:component>
     <sbol:component>
-      <sbol:Component rdf:about="http://virtualparts.org/abdesign/B_circuit/ter1C4/1">
-        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit/ter1C4"/>
-        <sbol:displayId>ter1C4</sbol:displayId>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/B_circuit/rbsTetRC2/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit/rbsTetRC2"/>
+        <sbol:displayId>rbsTetRC2</sbol:displayId>
         <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ter1/1"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbsTetR/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
@@ -879,16 +816,12 @@
         <sbol:object rdf:resource="http://virtualparts.org/abdesign/B_circuit/cdsBC3/1"/>
       </sbol:SequenceConstraint>
     </sbol:sequenceConstraint>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/B_circuit_seq"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/IPTG">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/IPTG"/>
-    <sbol:displayId>IPTG</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/B">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B"/>
-    <sbol:displayId>B</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI_Dimer">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI_Dimer"/>
+    <sbol:displayId>LacI_Dimer</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsB/1">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsB"/>
@@ -896,25 +829,87 @@
     <sbol:version>1</sbol:version>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/cdsB_seq"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbs2/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbs2"/>
-    <sbol:displayId>rbs2</sbol:displayId>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/A_circuit/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit"/>
+    <sbol:displayId>A_circuit</sbol:displayId>
     <sbol:version>1</sbol:version>
+    <vpr:copyNumber>10.0</vpr:copyNumber>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
+    <sbol:component>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/ter1C4/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1C4"/>
+        <sbol:displayId>ter1C4</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/ter1/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:component>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/pLacIC1/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/pLacIC1"/>
+        <sbol:displayId>pLacIC1</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/pLacI/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:component>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2"/>
+        <sbol:displayId>rbsLacIC2</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/rbsLacI/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:component>
+      <sbol:Component rdf:about="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3"/>
+        <sbol:displayId>cdsAC3</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:definition rdf:resource="http://virtualparts.org/abdesign/cdsA/1"/>
+      </sbol:Component>
+    </sbol:component>
+    <sbol:sequenceConstraint>
+      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/ter1_cdsAC3/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1_cdsAC3"/>
+        <sbol:displayId>ter1_cdsAC3</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1"/>
+        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/ter1C4/1"/>
+      </sbol:SequenceConstraint>
+    </sbol:sequenceConstraint>
+    <sbol:sequenceConstraint>
+      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/rbsLacI_pLacIC1/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacI_pLacIC1"/>
+        <sbol:displayId>rbsLacI_pLacIC1</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/pLacIC1/1"/>
+        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1"/>
+      </sbol:SequenceConstraint>
+    </sbol:sequenceConstraint>
+    <sbol:sequenceConstraint>
+      <sbol:SequenceConstraint rdf:about="http://virtualparts.org/abdesign/A_circuit/cdsA_rbsLacIC2/1">
+        <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsA_rbsLacIC2"/>
+        <sbol:displayId>cdsA_rbsLacIC2</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
+        <sbol:subject rdf:resource="http://virtualparts.org/abdesign/A_circuit/rbsLacIC2/1"/>
+        <sbol:object rdf:resource="http://virtualparts.org/abdesign/A_circuit/cdsAC3/1"/>
+      </sbol:SequenceConstraint>
+    </sbol:sequenceConstraint>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/A_circuit_seq"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI_IPTG">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI_IPTG"/>
-    <sbol:displayId>LacI_IPTG</sbol:displayId>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsA/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsA"/>
-    <sbol:displayId>cdsA</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/IPTG">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/IPTG"/>
+    <sbol:displayId>IPTG</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#SmallMolecule"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/rbs1/1">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbs1"/>
@@ -922,35 +917,175 @@
     <sbol:version>1</sbol:version>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/rbs1_seq"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsTetR/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsTetR"/>
-    <sbol:displayId>cdsTetR</sbol:displayId>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/B">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B"/>
+    <sbol:displayId>B</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/cdsLacI/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsLacI"/>
+    <sbol:displayId>cdsLacI</sbol:displayId>
     <sbol:version>1</sbol:version>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/cdsLacI_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI_IPTG">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI_IPTG"/>
+    <sbol:displayId>LacI_IPTG</sbol:displayId>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/LacI">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/LacI"/>
     <sbol:displayId>LacI</sbol:displayId>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pLacI/1">
-    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pLacI"/>
-    <sbol:displayId>pLacI</sbol:displayId>
-    <sbol:version>1</sbol:version>
-    <vpr:transcriptionRate>0.03</vpr:transcriptionRate>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
-  </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/TetR_ATC">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/TetR_ATC"/>
     <sbol:displayId>TetR_ATC</sbol:displayId>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pConstTetR/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstTetR"/>
+    <sbol:displayId>pConstTetR</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/pConstTetR_seq"/>
   </sbol:ComponentDefinition>
   <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/TetR_Dimer">
     <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/TetR_Dimer"/>
     <sbol:displayId>TetR_Dimer</sbol:displayId>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Complex"/>
   </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="http://virtualparts.org/abdesign/pTet/1">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pTet"/>
+    <sbol:displayId>pTet</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <vpr:transcriptionRate>0.05</vpr:transcriptionRate>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="http://virtualparts.org/abdesign/pTet_seq"/>
+  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/cdsA_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsA_seq"/>
+    <sbol:displayId>cdsA_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://www.nature.com/articles/nature11516#SupplementaryTableS4_exsD"/>
+    <prov:wasDerivedFrom rdf:resource="https://www.uniprot.org/uniprotkb/P95429/entry"/>
+    <sbol:elements>ATGGAGCAGGAAGACGATAAGCAGTACTCCCGAGAAGCGGTGTTCGCTGGCAGGCGGGTATCCGTGGTGGGCTCGGACGCCCGCTCGCGGGGTCGGGTGCCGGGTTACGCATCGAGCAGTTTGTATCGTGAGTCCGGAATCATCAGTGCGCGGCAACTGGCGTTGCTGCAGCGGATGCTGCCGCGCCTGCGGCTGGAGCAACTGTTCCGCTGCGAGTGGTTGCAGCAGCGCCTGGCGCGCGGCCTGGCGCTGGGGCGCGAAGAGGTGCGGCAGATTCTCCTCTGCGCGGCGCAGGACGACGACGGCTGGTGCTCCGAACTGGGCGACCGGGTCAACCTCGCCGTGCCGCAGTCGATGATCGACTGGGTCCTGCTGCCGGTCTATGGCTGGTGGGAAAGCCTGCTCGACCAGGCGATCCCCGGCTGGCGCCTGTCGCTGGTGGAGCTGGAGACCCAGTCCCGGCAACTGCGAGTCAAGTCCGAATTCTGGTCCCGCGTGGCCGAGCTGGAGCCGGAGCAGGCCCGCGAGGAACTGGCCAGGGTCGCCAAGTGCCAGGCGCGCACCCAGGAACAGGTGGCCGAACTGGCCGGCAAGCTGGAGACGGCTTCGGCACTGGCGAAGAGCGCCTGGCCGAACTGGCAGCGGGGCATGGCGACGCTGCTCGCCAGCGGCGGGCTGGCCGGCTTCGAGCCGATCCCCGAGGTCCTCGAATGCCTCTGGCAACCTCTCTGCCGGCTGGACGACGACGTCGGCGCGGCGGACGCCGTCCAGGCCTGGCTGCACGAACGCAACCTGTGCCAGGCACAGGATCACTTCTACTGGCAGAGCTGA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/B_circuit_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/B_circuit_seq"/>
+    <sbol:displayId>B_circuit_seq</sbol:displayId>
+    <sbol:elements>TACTCCACCGTTGGCTTTTTTCCCTATCAGTGATAGAGATTGACATCCCTATCAGTGATAGAGATAATGAGCACTCCAGGAGGAAAAAAATGCAAGGAGCCAAATCTCTTGGCCGAAAGCAGATAACGTCTTGTCATTGGAACATTCCAACTTTCGAATACAGGGTAAACAAGGAAGAGGGCGTATATGTTCTGCTCGAGGGCGAACTGACCGTCCAGGACATCGATTCCACTTTTTGCCTGGCGCCTGGCGAGTTGCTTTTCGTCCGCCGCGGAAGCTATGTCGTAAGTACCAAGGGAAAGGACAGCCGAATACTCTGGATTCCATTATCTGCCCAGTTTCTACAAGGCTTCGTCCAGCGCTTCGGCGCGCTGTTGAGTGAAGTCGAGCGTTGCGACGAGCCCGTGCCGGGCATCATCGCGTTCGCTGCCACGCCTCTGCTGGCCGGTTGCGTCAAGGGGTTGAAGGAATTGCTTGTGCATGAGCATCCGCCGATGCTCGCCTGCCTGAAGATCGAGGAGTTGCTGATGCTCTTCGCGTTCAGTCCGCAGGGGCCGCTGCTGATGTCGGTCCTGCGGCAACTGAGCAACCGGCATGTCGAGCGTCTGCAGCTATTCATGGAGAAGCACTACCTCAACGAGTGGAAGCTGTCCGACTTCTCCCGCGAGTTCGGCATGGGGCTGACCACCTTCAAGGAGCTGTTCGGCAGTGTCTATGGGGTTTCGCCGCGCGCCTGGATCAGCGAGCGGAGAATCCTCTATGCCCATCAGTTGCTGCTCAACAGCGACATGAGCATCGTCGACATCGCCATGGAGGCGGGCTTTTCCAGTCAGTCCTATTTCACCCAGAGCTATCGCCGCCGTTTCGGCTGCACGCCGAGCCGCTCGCGGCAGGGGAAGGACGAATGCCGGGCTAAAAATAACTGACTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/A_circuit_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/A_circuit_seq"/>
+    <sbol:displayId>A_circuit_seq</sbol:displayId>
+    <sbol:elements>GCGGCGCGCCATCGAATGGCGCAAAACCTTTCGCGGTATGGCATGATAGCGCCCGGAAGAGAGTCAATTCAGGGTGGTGAATATGGAGCAGGAAGACGATAAGCAGTACTCCCGAGAAGCGGTGTTCGCTGGCAGGCGGGTATCCGTGGTGGGCTCGGACGCCCGCTCGCGGGGTCGGGTGCCGGGTTACGCATCGAGCAGTTTGTATCGTGAGTCCGGAATCATCAGTGCGCGGCAACTGGCGTTGCTGCAGCGGATGCTGCCGCGCCTGCGGCTGGAGCAACTGTTCCGCTGCGAGTGGTTGCAGCAGCGCCTGGCGCGCGGCCTGGCGCTGGGGCGCGAAGAGGTGCGGCAGATTCTCCTCTGCGCGGCGCAGGACGACGACGGCTGGTGCTCCGAACTGGGCGACCGGGTCAACCTCGCCGTGCCGCAGTCGATGATCGACTGGGTCCTGCTGCCGGTCTATGGCTGGTGGGAAAGCCTGCTCGACCAGGCGATCCCCGGCTGGCGCCTGTCGCTGGTGGAGCTGGAGACCCAGTCCCGGCAACTGCGAGTCAAGTCCGAATTCTGGTCCCGCGTGGCCGAGCTGGAGCCGGAGCAGGCCCGCGAGGAACTGGCCAGGGTCGCCAAGTGCCAGGCGCGCACCCAGGAACAGGTGGCCGAACTGGCCGGCAAGCTGGAGACGGCTTCGGCACTGGCGAAGAGCGCCTGGCCGAACTGGCAGCGGGGCATGGCGACGCTGCTCGCCAGCGGCGGGCTGGCCGGCTTCGAGCCGATCCCCGAGGTCCTCGAATGCCTCTGGCAACCTCTCTGCCGGCTGGACGACGACGTCGGCGCGGCGGACGCCGTCCAGGCCTGGCTGCACGAACGCAACCTGTGCCAGGCACAGGATCACTTCTACTGGCAGAGCTGACTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/pLacI_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pLacI_seq"/>
+    <sbol:displayId>pLacI_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_PLacI"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"/>
+    <sbol:elements>GCGGCGCGCCATCGAATGGCGCAAAACCTTTCGCGGTATGGCATGATAGCGCCCGG</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/rbsTetR_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbsTetR_seq"/>
+    <sbol:displayId>rbsTetR_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"/>
+    <sbol:elements>TCCAGGAGGAAAAAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/pConstLacI_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstLacI_seq"/>
+    <sbol:displayId>pConstLacI_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://parts.igem.org/Part:BBa_J23101"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_BBa_J23101"/>
+    <sbol:elements>TTTACAGCTAGCTCAGTCCTAGGTATTATGCTAGC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/rbs1_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbs1_seq"/>
+    <sbol:displayId>rbs1_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryFigureS34"/>
+    <prov:wasDerivedFrom rdf:resource="https://parts.igem.org/Part:BBa_B0064"/>
+    <sbol:elements>AAAGAGGGGAAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/cdsTetR_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsTetR_seq"/>
+    <sbol:displayId>cdsTetR_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_tetR"/>
+    <sbol:elements>ATGTCCAGATTAGATAAAAGTAAAGTGATTAACAGCGCATTAGAGCTGCTTAATGAGGTCGGAATCGAAGGTTTAACAACCCGTAAACTCGCCCAGAAGCTAGGTGTAGAGCAGCCTACATTGTATTGGCATGTAAAAAATAAGCGGGCTTTGCTCGACGCCTTAGCCATTGAGATGTTAGATAGGCACCATACTCACTTTTGCCCTTTAGAAGGGGAAAGCTGGCAAGATTTTTTACGTAATAACGCTAAAAGTTTTAGATGTGCTTTACTAAGTCATCGCGATGGAGCAAAAGTACATTTAGGTACACGGCCTACAGAAAAACAGTATGAAACTCTCGAAAATCAATTAGCCTTTTTATGCCAACAAGGTTTTTCACTAGAGAATGCATTATATGCACTCAGCGCTGTGGGGCATTTTACTTTAGGTTGCGTATTGGAAGATCAAGAGCATCAAGTCGCTAAAGAAGAAAGGGAAACACCTACTACTGATAGTATGCCGCCATTATTACGACAAGCTATCGAATTATTTGATCACCAAGGTGCAGAGCCAGCCTTCTTATTCGGCCTTGAATTGATCATATGCGGATTAGAAAAACAACTTAAATGTGAAAGTGGGTCCTAATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/pConstTetR_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pConstTetR_seq"/>
+    <sbol:displayId>pConstTetR_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://parts.igem.org/Part:BBa_J23101"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_BBa_J23101"/>
+    <sbol:elements>TTTACAGCTAGCTCAGTCCTAGGTATTATGCTAGC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/cdsB_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsB_seq"/>
+    <sbol:displayId>cdsB_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://www.uniprot.org/uniprotkb/P26993/entry"/>
+    <prov:wasDerivedFrom rdf:resource="https://www.nature.com/articles/nature11516#SupplementaryTableS4_exsA"/>
+    <sbol:elements>ATGCAAGGAGCCAAATCTCTTGGCCGAAAGCAGATAACGTCTTGTCATTGGAACATTCCAACTTTCGAATACAGGGTAAACAAGGAAGAGGGCGTATATGTTCTGCTCGAGGGCGAACTGACCGTCCAGGACATCGATTCCACTTTTTGCCTGGCGCCTGGCGAGTTGCTTTTCGTCCGCCGCGGAAGCTATGTCGTAAGTACCAAGGGAAAGGACAGCCGAATACTCTGGATTCCATTATCTGCCCAGTTTCTACAAGGCTTCGTCCAGCGCTTCGGCGCGCTGTTGAGTGAAGTCGAGCGTTGCGACGAGCCCGTGCCGGGCATCATCGCGTTCGCTGCCACGCCTCTGCTGGCCGGTTGCGTCAAGGGGTTGAAGGAATTGCTTGTGCATGAGCATCCGCCGATGCTCGCCTGCCTGAAGATCGAGGAGTTGCTGATGCTCTTCGCGTTCAGTCCGCAGGGGCCGCTGCTGATGTCGGTCCTGCGGCAACTGAGCAACCGGCATGTCGAGCGTCTGCAGCTATTCATGGAGAAGCACTACCTCAACGAGTGGAAGCTGTCCGACTTCTCCCGCGAGTTCGGCATGGGGCTGACCACCTTCAAGGAGCTGTTCGGCAGTGTCTATGGGGTTTCGCCGCGCGCCTGGATCAGCGAGCGGAGAATCCTCTATGCCCATCAGTTGCTGCTCAACAGCGACATGAGCATCGTCGACATCGCCATGGAGGCGGGCTTTTCCAGTCAGTCCTATTTCACCCAGAGCTATCGCCGCCGTTTCGGCTGCACGCCGAGCCGCTCGCGGCAGGGGAAGGACGAATGCCGGGCTAAAAATAACTGA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/cdsLacI_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/cdsLacI_seq"/>
+    <sbol:displayId>cdsLacI_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_lacI"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"/>
+    <sbol:elements>ATGAAACCAGTAACGTTATACGATGTCGCAGAGTATGCCGGTGTCTCTTATCAGACCGTTTCCCGCGTGGTGAACCAGGCCAGCCACGTTTCTGCGAAAACGCGGGAAAAAGTGGAAGCGGCGATGGCGGAGCTGAATTACATTCCCAACCGCGTGGCACAACAACTGGCGGGCAAACAGTCGTTGCTGATTGGCGTTGCCACCTCCAGTCTGGCCCTGCACGCGCCGTCGCAAATTGTCGCGGCGATTAAATCTCGCGCCGATCAACTGGGTGCCAGCGTGGTGGTGTCGATGGTAGAACGAAGCGGCGTCGAAGCCTGTAAAGCGGCGGTGCACAATCTTCTCGCGCAACGCGTCAGTGGGCTGATCATTAACTATCCGCTGGATGACCAGGATGCCATTGCTGTGGAAGCTGCCTGCACTAATGTTCCGGCGTTATTTCTTGATGTCTCTGACCAGACACCCATCAACAGTATTATTTTCTCCCATGAGGACGGTACGCGACTGGGCGTGGAGCATCTGGTCGCATTGGGTCACCAGCAAATCGCGCTGTTAGCGGGCCCATTAAGTTCTGTCTCGGCGCGTCTGCGTCTGGCTGGCTGGCATAAATATCTCACTCGCAATCAAATTCAGCCGATAGCGGAACGGGAAGGCGACTGGAGTGCCATGTCCGGTTTTCAACAAACCATGCAAATGCTGAATGAGGGCATCGTTCCCACTGCGATGCTGGTTGCCAACGATCAGATGGCGCTGGGCGCAATGCGCGCCATTACCGAGTCCGGGCTGCGCGTTGGTGCGGATATCTCGGTAGTGGGATACGACGATACCGAAGATAGCTCATGTTATATCCCGCCGTTAACCACCATCAAACAGGATTTTCGCCTGCTGGGGCAAACCAGCGTGGACCGCTTGCTGCAACTCTCTCAGGGCCAGGCGGTGAAGGGCAATCAGCTGTTGCCAGTCTCACTGGTGAAAAGAAAAACCACCCTGGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/rbsLacI_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbsLacI_seq"/>
+    <sbol:displayId>rbsLacI_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"/>
+    <sbol:elements>AAGAGAGTCAATTCAGGGTGGTGAAT</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/pTet_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/pTet_seq"/>
+    <sbol:displayId>pTet_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_PTet"/>
+    <sbol:elements>TACTCCACCGTTGGCTTTTTTCCCTATCAGTGATAGAGATTGACATCCCTATCAGTGATAGAGATAATGAGCAC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/rbs2_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/rbs2_seq"/>
+    <sbol:displayId>rbs2_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryFigureS34"/>
+    <prov:wasDerivedFrom rdf:resource="https://parts.igem.org/Part:BBa_B0064"/>
+    <sbol:elements>AAAGAGGGGAAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/Sensor_circuit_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/Sensor_circuit_seq"/>
+    <sbol:displayId>Sensor_circuit_seq</sbol:displayId>
+    <sbol:elements>TTTACAGCTAGCTCAGTCCTAGGTATTATGCTAGCAAAGAGGGGAAAATGAAACCAGTAACGTTATACGATGTCGCAGAGTATGCCGGTGTCTCTTATCAGACCGTTTCCCGCGTGGTGAACCAGGCCAGCCACGTTTCTGCGAAAACGCGGGAAAAAGTGGAAGCGGCGATGGCGGAGCTGAATTACATTCCCAACCGCGTGGCACAACAACTGGCGGGCAAACAGTCGTTGCTGATTGGCGTTGCCACCTCCAGTCTGGCCCTGCACGCGCCGTCGCAAATTGTCGCGGCGATTAAATCTCGCGCCGATCAACTGGGTGCCAGCGTGGTGGTGTCGATGGTAGAACGAAGCGGCGTCGAAGCCTGTAAAGCGGCGGTGCACAATCTTCTCGCGCAACGCGTCAGTGGGCTGATCATTAACTATCCGCTGGATGACCAGGATGCCATTGCTGTGGAAGCTGCCTGCACTAATGTTCCGGCGTTATTTCTTGATGTCTCTGACCAGACACCCATCAACAGTATTATTTTCTCCCATGAGGACGGTACGCGACTGGGCGTGGAGCATCTGGTCGCATTGGGTCACCAGCAAATCGCGCTGTTAGCGGGCCCATTAAGTTCTGTCTCGGCGCGTCTGCGTCTGGCTGGCTGGCATAAATATCTCACTCGCAATCAAATTCAGCCGATAGCGGAACGGGAAGGCGACTGGAGTGCCATGTCCGGTTTTCAACAAACCATGCAAATGCTGAATGAGGGCATCGTTCCCACTGCGATGCTGGTTGCCAACGATCAGATGGCGCTGGGCGCAATGCGCGCCATTACCGAGTCCGGGCTGCGCGTTGGTGCGGATATCTCGGTAGTGGGATACGACGATACCGAAGATAGCTCATGTTATATCCCGCCGTTAACCACCATCAAACAGGATTTTCGCCTGCTGGGGCAAACCAGCGTGGACCGCTTGCTGCAACTCTCTCAGGGCCAGGCGGTGAAGGGCAATCAGCTGTTGCCAGTCTCACTGGTGAAAAGAAAAACCACCCTGGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGATAACTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCCTTTACAGCTAGCTCAGTCCTAGGTATTATGCTAGCAAAGAGGGGAAAATGTCCAGATTAGATAAAAGTAAAGTGATTAACAGCGCATTAGAGCTGCTTAATGAGGTCGGAATCGAAGGTTTAACAACCCGTAAACTCGCCCAGAAGCTAGGTGTAGAGCAGCCTACATTGTATTGGCATGTAAAAAATAAGCGGGCTTTGCTCGACGCCTTAGCCATTGAGATGTTAGATAGGCACCATACTCACTTTTGCCCTTTAGAAGGGGAAAGCTGGCAAGATTTTTTACGTAATAACGCTAAAAGTTTTAGATGTGCTTTACTAAGTCATCGCGATGGAGCAAAAGTACATTTAGGTACACGGCCTACAGAAAAACAGTATGAAACTCTCGAAAATCAATTAGCCTTTTTATGCCAACAAGGTTTTTCACTAGAGAATGCATTATATGCACTCAGCGCTGTGGGGCATTTTACTTTAGGTTGCGTATTGGAAGATCAAGAGCATCAAGTCGCTAAAGAAGAAAGGGAAACACCTACTACTGATAGTATGCCGCCATTATTACGACAAGCTATCGAATTATTTGATCACCAAGGTGCAGAGCCAGCCTTCTTATTCGGCCTTGAATTGATCATATGCGGATTAGAAAAACAACTTAAATGTGAAAGTGGGTCCTAATAACTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="http://virtualparts.org/abdesign/ter1_seq">
+    <sbol:persistentIdentity rdf:resource="http://virtualparts.org/abdesign/ter1_seq"/>
+    <sbol:displayId>ter1_seq</sbol:displayId>
+    <prov:wasDerivedFrom rdf:resource="https://parts.igem.org/Part:BBa_K2675031"/>
+    <prov:wasDerivedFrom rdf:resource="https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_L3S2P21"/>
+    <sbol:elements>CTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
 </rdf:RDF>
