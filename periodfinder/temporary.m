@@ -8,13 +8,15 @@ signalDur = 1500;
 maxPeriod = 2000;
 bitSeqStr = "0010111100101";
 oneBitSeq = "0010000000000";
-TEST_DATA_FOLDER = "../output/testData/";
-PLOT_FOLDER = "../output/plotData/";
-IMAGE_FOLDER = "../output/images/";
-HEATMAP_FOLDER = "../output/heatmap/";
-TMP_FOLDER = "../output/tmp/";
-heatmapFile = 'heatmapfile.mat';
-showFigures=1;
+
+outputFolder="../output_d_200";
+TEST_DATA_FOLDER = fullfile (outputFolder,"testData/");%"../output/testData/";
+PLOT_FOLDER = fullfile (outputFolder,"plotData/"); % "../output/plotData/";
+IMAGE_FOLDER =fullfile (outputFolder,"images/"); %"../output/images/";
+HEATMAP_FOLDER = fullfile (outputFolder,"/heatmap/"); %"../output/heatmap/";
+TMP_FOLDER = fullfile (outputFolder, "tmp/");%"../output/tmp/";
+showFigures=0;
+heatmapFile = fullfile (HEATMAP_FOLDER,"heatmapfile.mat");%'heatmapfile.mat';
 
 
 M_periodFinder = 3000000;
@@ -38,6 +40,7 @@ B_periodFinder= M_periodFinder * alpha_periodFinder;
 
 %Example: For detailed input images - Intercellular (External) to intracellular (internal) signalling
 %generateOne(0.15,600,M,1500,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
+%plotter(M*(1-0.15), M*0.15,1500,bitSeqStr,600,PLOT_FOLDER, IMAGE_FOLDER);
 
 %Figure 8A
 generateOne(0,600,M,1443,bitSeqStr, TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)

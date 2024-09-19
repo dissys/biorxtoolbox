@@ -44,10 +44,10 @@ counter = 0;
             end
 
             IPTG_params.Dico = 600;
-            IPTG_params.d = 200;
+            IPTG_params.d = 200;%GM-20240918: Changed the distance from 200 to 400, 800, 100
             IPTG_params.rRx = 2;            
             aTc_params.Dico = 870;
-            aTc_params.d = 200;
+            aTc_params.d = 200; %GM-20240918: Changed the distance from 200 to 400, 800, 100
             aTc_params.rRx = 2;            
             sampling_rate = 40;            
             total_time = signal_duration * length(bit_sequence);

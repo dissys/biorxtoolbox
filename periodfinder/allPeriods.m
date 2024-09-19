@@ -134,12 +134,15 @@ for a = alpha
         %Find the minimum t that comes after the I1 time point (when
         %Bin/Ain is maximum) and after the I2 time point (when Ai is the
         %maximum). Condition: The rate should be within minus or plus 5% of
-        %the zero rate (the rate at the native state)
+        %the zero rate (the rate at the native state). The symbol duration
+        %must also be bigger than 100 seconds. This is the differen between
+        %the found time point minus the warmup period (two times onebitperiod)
         newdata = [];
         j=1;
+        onebitPeriod=length(time)/strlength(oneBitSeq);
         for i = 1:length(rate)
             if(rate(i) <= zero_rate*1.05 && rate(i)>=zero_rate*0.95)
-                 if i > I && i> I1
+                 if i > I && i> I1 && i-(onebitPeriod*2)>100  
                     newdata(j) = i;
                     j = j + 1;                    
                 end
@@ -147,8 +150,7 @@ for a = alpha
         end
         
         minSufficientTimePoint=min(newdata);
-        onebitPeriod=length(time)/strlength(oneBitSeq);
-
+        
         imageFolder=strcat(TMP_FOLDER,dirName);
         mkdir(char(imageFolder));           
         figureParameters.showFigures=showFigures;
@@ -158,14 +160,15 @@ for a = alpha
         figureParameters.imageFolder=imageFolder;
         figureParameters.prefix='OptimiseDuration';
        
-        %if d==1000 && a==0.15          
+        %if d==0 && a==0.25  %Comment        
             figureParameters=displayFigure(figureParameters, dataA, 'BinScaled');
             figureParameters=displayFigure(figureParameters, dataB, 'AinScaled');            
             figureParameters=saveRateFigure(figureParameters, rate, 'rateScaled',I,I1,minSufficientTimePoint,onebitPeriod, oneBitSeq);
-            %f=gcf;
-            %f.Visible='on';
-            %error ('gmgm');
-       % end
+            %f=gcf; %Comment
+            %f.Visible='on'; %Comment
+
+            %error ('gmgm'); %Comment
+        %end %Comment
 
         %length(time)/strlength(oneBitSeq): Timepoints allocated to each
         %bit:1000/13
@@ -194,6 +197,12 @@ end
 result
 
 save(heatmapFile,'result', 'alpha','delay');
+
+[fid,msg] = fopen(heatmapFile + ".txt",'w');
+assert(fid>=3,msg)
+fprintf(fid,'%d\n',result)
+fclose(fid);
+
 periodFinder = true;
 
 

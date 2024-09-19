@@ -1,0 +1,5 @@
+Score	 Alpha	 Delay	 TS
+1665.2	 0.25	 100	 1970
+
+Score	Solution
+1665.2	A2625000_B875000_K_TS1970_Seq0010111100101_TShift100
