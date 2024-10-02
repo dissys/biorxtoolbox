@@ -15,7 +15,7 @@ x = S.alpha;
 y = S.delay;
 figure();
 h = heatmap(y,x,data);
-h.XLabel = "Delay";
+h.XLabel = "t_{shift}";
 h.YLabel = "α";
 colormap(flipud(jet))
 colorbar
