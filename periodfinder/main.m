@@ -7,17 +7,18 @@ signalDur = 1500;
 maxPeriod = 2000;
 bitSeqStr = "0010111100101";
 oneBitSeq = "0010000000000";
-TEST_DATA_FOLDER = "../output/testData/";
-PLOT_FOLDER = "../output/plotData/";
-IMAGE_FOLDER = "../output/images/";
-HEATMAP_FOLDER = "../output/heatmap/";
-TMP_FOLDER = "../output/tmp/";
+outputFolder="../output_d_200";
+TEST_DATA_FOLDER = fullfile (outputFolder,"testData/");%"../output/testData/";
+PLOT_FOLDER = fullfile (outputFolder,"plotData/"); % "../output/plotData/";
+IMAGE_FOLDER =fullfile (outputFolder,"images/"); %"../output/images/";
+HEATMAP_FOLDER = fullfile (outputFolder,"/heatmap/"); %"../output/heatmap/";
+TMP_FOLDER = fullfile (outputFolder, "tmp/");%"../output/tmp/";
 showFigures=0;
-heatmapFile = 'heatmapfile.mat';
+heatmapFile = fullfile (HEATMAP_FOLDER,"heatmapfile.mat");%'heatmapfile.mat';
 
 
 %% Generates all the one shot signals with for each alpha and delay parameter pair
-generateAll(alpha,delay, M, 0, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
+generateAll(alpha,delay, M, 47, signalDur,oneBitSeq,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
 
 %% Example only and can be commented out. Generates files for a fixed signal duration for each alpha and delay pair parameter. The output files are not integrated with period finder.
 %generateAll(alpha,delay ,M, 0, signalDur,bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER)
@@ -44,7 +45,7 @@ generateOne(alpha_periodFinder,900,M,signalDur,bitSeqStr, TEST_DATA_FOLDER,PLOT_
 %% Calculates the minimum symbol duration and records them into a matrix ("heatmapfile.mat")
 disp('Calculating optimum symbol durations...')
 matFileName_zeros = strcat(getName(0, 0, signalDur_periodFinder, tshift_periodFinder, bitSeq_periodFinder),".mat")
-allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,1,TMP_FOLDER)
+allPeriods(alpha,delay,M,signalDur,PLOT_FOLDER,matFileName_zeros,bitSeq_periodFinder, oneBitSeq,heatmapFile,0,TMP_FOLDER)
 
 %%%
 %* plots all the one bit signals
@@ -73,7 +74,7 @@ plotter(M,0,signalDur,bitSeqStr,900,PLOT_FOLDER, IMAGE_FOLDER);
 
 %% Generates all the multi-bit signals with symbol durations less then maxPeriod.
 %Simulates the identified solutions that meets the fitness criteria (sd < maxPeriod)
-generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,1,TMP_FOLDER);
+generateNice(alpha,delay,M,maxPeriod,heatmapFile, bitSeqStr,TEST_DATA_FOLDER,PLOT_FOLDER,showFigures,TMP_FOLDER);
 
 %% Plots all the signals simulated by generateNice
 nicePlotter(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMAGE_FOLDER);
@@ -83,7 +84,7 @@ res = MolEyeScore(heatmapFile,alpha,delay,M,maxPeriod,bitSeqStr,PLOT_FOLDER, IMA
 
 %% Rank the scores
 B = sortrows(res,1,'descend'); 
-disp(num2str(B(1:5,:)));
+%disp(num2str(B(1:5,:)));
 disp(num2str(B));
 
 moleyeFolder=fullfile(IMAGE_FOLDER, "moleye");

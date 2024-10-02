@@ -5,9 +5,11 @@ PeriodFinder is a set of reusable Matlab functions. Use main.m to change simulat
 
 Some of these functions are summarised below:
 
+* main: The main file and executes the simulation workflow. It also includes system parameters such as the total number of molecules, the ratio of molelecules and the delay between them. 
+
 * generateAll: Simulates all communication scenarios for given parameter vectors.
 
-* generateOne: Simulates a single communication scenario.
+* generateOne: Simulates a single communication scenario. Includes diffusion specific parameters.
 
 * allPeriods: Infers optimum symbol durations.
 
@@ -23,6 +25,7 @@ Some of these functions are summarised below:
 
 # MolSim7
 MolSim is a Java tool that converts the external type-A and type-B signals to internal cellular signals and creates the corresponding computational model.
+
 
 ## Dependencies
 MolSim7 relies on COPASI Java bindings, which are included in this project under "/periodfinder/dependencies." 
@@ -43,6 +46,13 @@ If you are using a Mac computer, you may face the "library load disallowed by sy
  
  * Double check the quarantine list to ensure it is not listed anymore.
    ```$xattr libCopasiJava.jnilib```
+
+
+# Genetic circuit design and models
+The genetic circuit design and sequences used in this project are available as a Synthetic Biology Open Language (SBOL) version 2 file. The file can be accessed from ```biorxtoolbox/molsimv7/abcomm.sbol```.
+
+Each communication scenario has its own computational model in the form of the Systems Biology Markup Language (SBML) Level 3 files. These models are located in directories specific for communication scenarious under the ```biorxtoolbox/output/testData``` folder.
+
 
 
 

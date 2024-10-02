@@ -2,6 +2,8 @@ package dissys.keele.ac.uk;
 
 import java.io.File;
 import java.net.URI;
+import java.util.Set;
+
 //import javax.xml.stream.XMLStreamException;
 import org.sbml.jsbml.ASTNode;
 import org.sbml.jsbml.AssignmentRule;
@@ -15,20 +17,22 @@ import org.sbolstandard.core2.ComponentDefinition;
 import org.sbolstandard.core2.Interaction;
 import org.sbolstandard.core2.ModuleDefinition;
 import org.sbolstandard.core2.SBOLDocument;
-
+import org.sbolstandard.core2.SBOLValidationException;
+import org.sbolstandard.core2.SBOLWriter;
+import org.sbolstandard.core2.Sequence;
 import org.virtualparts.model.*;
 import org.virtualparts.sbml.*;
 import org.virtualparts.*;
 import org.virtualparts.sbol.*;
 
-
 public class MolSim7 {
 	
+	private SBOLDocument sbolDesign=null;
 	public SBMLDocument createModelStructure() throws Exception
 	{
 		String designName="abcomm";
 	    
-		SBOLDocument sbolDesign=new SBOLDocument();
+		sbolDesign=new SBOLDocument();
     	String base="http://virtualparts.org/abdesign/";
     	
     	//String design="promLacI:prom;rbs1:rbs;cdsA:cds;ter1:ter;prom2:prom;rbsLacI:rbs;cdsLacI:cds;ter1:ter;";
@@ -44,10 +48,11 @@ public class MolSim7 {
     	String ADesignName="A_circuit";
     	String BDesignName="B_circuit";
     	String sensorDesignName="Sensor_circuit";   	
-    	
+    	    	    	
     	SVPWriteHandler.convertToSBOL(sbolDesign,VPRUtil.getSVPDesign(base, ADesign), ADesignName);
-    	ComponentDefinition cd=VPRUtil.getComponentDef(sbolDesign, ADesignName, ComponentDefinition.DNA);
-    	//TODO COMMENT OUT
+    	
+    	    	
+    	ComponentDefinition cd=VPRUtil.getComponentDef(sbolDesign, ADesignName, ComponentDefinition.DNA);    	
     	VPRUtil.setAnnotation(cd,VPRTerms.parameter.copyNumber, 10);
     	
 
@@ -102,14 +107,113 @@ public class MolSim7 {
     	VPRUtil.setAnnotation(rbsLacI, VPRTerms.parameter.translationRate, 0.015);
     	
     	    	
-    	SBOLHandler.write(sbolDesign, new File(designName + ".sbol"));
+    	setSequences(sbolDesign);    	
+    	
     	SBMLDocument sbmlDoc=this.getModel(sbolDesign);
     	
     	return sbmlDoc;
     	
 	}
 	
-	
+	public void setSequences(SBOLDocument sbolDesign) throws SBOLValidationException
+	{
+    	//Sequences:
+    	
+    	//BBa_J23101: https://parts.igem.org/Part:BBa_J23101 
+    	String pConstSequence="TTTACAGCTAGCTCAGTCCTAGGTATTATGCTAGC";
+    	
+    	//BBa_B0064: https://parts.igem.org/Part:BBa_B0064
+    	String rbsConstSequence="AAAGAGGGGAAA";    		
+    	
+    	//Terminator: L3S2P21
+    	String terSequence="CTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC";      	
+    	
+    	//https://www.nature.com/articles/nature11516 (Nielsen at al) - SupplementaryTableS9
+    	String pTetSequence = "TACTCCACCGTTGGCTTTTTTCCCTATCAGTGATAGAGATTGACATCCCTATCAGTGATAGAGATAATGAGCAC";
+    	
+    	//LacI and TetR transcriptional unit - sensor module from Nielsen et al - supplementary table 8.
+    	//GCGGCGCGCCATCGAATGGCGCAAAACCTTTCGCGGTATGGCATGATAGCGCCCGGAAGAGAGTCAATTCAGGGTGGTGAATATGAAACCAGTAACGTTATACGATGTCGCAGAGTATGCCGGTGTCTCTTATCAGACCGTTTCCCGCGTGGTGAACCAGGCCAGCCACGTTTCTGCGAAAACGCGGGAAAAAGTGGAAGCGGCGATGGCGGAGCTGAATTACATTCCCAACCGCGTGGCACAACAACTGGCGGGCAAACAGTCGTTGCTGATTGGCGTTGCCACCTCCAGTCTGGCCCTGCACGCGCCGTCGCAAATTGTCGCGGCGATTAAATCTCGCGCCGATCAACTGGGTGCCAGCGTGGTGGTGTCGATGGTAGAACGAAGCGGCGTCGAAGCCTGTAAAGCGGCGGTGCACAATCTTCTCGCGCAACGCGTCAGTGGGCTGATCATTAACTATCCGCTGGATGACCAGGATGCCATTGCTGTGGAAGCTGCCTGCACTAATGTTCCGGCGTTATTTCTTGATGTCTCTGACCAGACACCCATCAACAGTATTATTTTCTCCCATGAGGACGGTACGCGACTGGGCGTGGAGCATCTGGTCGCATTGGGTCACCAGCAAATCGCGCTGTTAGCGGGCCCATTAAGTTCTGTCTCGGCGCGTCTGCGTCTGGCTGGCTGGCATAAATATCTCACTCGCAATCAAATTCAGCCGATAGCGGAACGGGAAGGCGACTGGAGTGCCATGTCCGGTTTTCAACAAACCATGCAAATGCTGAATGAGGGCATCGTTCCCACTGCGATGCTGGTTGCCAACGATCAGATGGCGCTGGGCGCAATGCGCGCCATTACCGAGTCCGGGCTGCGCGTTGGTGCGGATATCTCGGTAGTGGGATACGACGATACCGAAGATAGCTCATGTTATATCCCGCCGTTAACCACCATCAAACAGGATTTTCGCCTGCTGGGGCAAACCAGCGTGGACCGCTTGCTGCAACTCTCTCAGGGCCAGGCGGTGAAGGGCAATCAGCTGTTGCCAGTCTCACTGGTGAAAAGAAAAACCACCCTGGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGATAATCCAGGAGGAAAAAAATGTCCAGATTAGATAAAAGTAAAGTGATTAACAGCGCATTAGAGCTGCTTAATGAGGTCGGAATCGAAGGTTTAACAACCCGTAAACTCGCCCAGAAGCTAGGTGTAGAGCAGCCTACATTGTATTGGCATGTAAAAAATAAGCGGGCTTTGCTCGACGCCTTAGCCATTGAGATGTTAGATAGGCACCATACTCACTTTTGCCCTTTAGAAGGGGAAAGCTGGCAAGATTTTTTACGTAATAACGCTAAAAGTTTTAGATGTGCTTTACTAAGTCATCGCGATGGAGCAAAAGTACATTTAGGTACACGGCCTACAGAAAAACAGTATGAAACTCTCGAAAATCAATTAGCCTTTTTATGCCAACAAGGTTTTTCACTAGAGAATGCATTATATGCACTCAGCGCTGTGGGGCATTTTACTTTAGGTTGCGTATTGGAAGATCAAGAGCATCAAGTCGCTAAAGAAGAAAGGGAAACACCTACTACTGATAGTATGCCGCCATTATTACGACAAGCTATCGAATTATTTGATCACCAAGGTGCAGAGCCAGCCTTCTTATTCGGCCTTGAATTGATCATATGCGGATTAGAAAAACAACTTAAATGTGAAAGTGGGTCCTAATAA
+    	//pLacI: 
+    	String pLacISequence="GCGGCGCGCCATCGAATGGCGCAAAACCTTTCGCGGTATGGCATGATAGCGCCCGG";    	
+    	//rbsLacI - The rest of the sequence from the pLacI sequence in Nielsen et al - supplementary table 8: 
+    	String rbsLacISequence="AAGAGAGTCAATTCAGGGTGGTGAAT";
+    	//* lacI:
+    	String lacISequence="ATGAAACCAGTAACGTTATACGATGTCGCAGAGTATGCCGGTGTCTCTTATCAGACCGTTTCCCGCGTGGTGAACCAGGCCAGCCACGTTTCTGCGAAAACGCGGGAAAAAGTGGAAGCGGCGATGGCGGAGCTGAATTACATTCCCAACCGCGTGGCACAACAACTGGCGGGCAAACAGTCGTTGCTGATTGGCGTTGCCACCTCCAGTCTGGCCCTGCACGCGCCGTCGCAAATTGTCGCGGCGATTAAATCTCGCGCCGATCAACTGGGTGCCAGCGTGGTGGTGTCGATGGTAGAACGAAGCGGCGTCGAAGCCTGTAAAGCGGCGGTGCACAATCTTCTCGCGCAACGCGTCAGTGGGCTGATCATTAACTATCCGCTGGATGACCAGGATGCCATTGCTGTGGAAGCTGCCTGCACTAATGTTCCGGCGTTATTTCTTGATGTCTCTGACCAGACACCCATCAACAGTATTATTTTCTCCCATGAGGACGGTACGCGACTGGGCGTGGAGCATCTGGTCGCATTGGGTCACCAGCAAATCGCGCTGTTAGCGGGCCCATTAAGTTCTGTCTCGGCGCGTCTGCGTCTGGCTGGCTGGCATAAATATCTCACTCGCAATCAAATTCAGCCGATAGCGGAACGGGAAGGCGACTGGAGTGCCATGTCCGGTTTTCAACAAACCATGCAAATGCTGAATGAGGGCATCGTTCCCACTGCGATGCTGGTTGCCAACGATCAGATGGCGCTGGGCGCAATGCGCGCCATTACCGAGTCCGGGCTGCGCGTTGGTGCGGATATCTCGGTAGTGGGATACGACGATACCGAAGATAGCTCATGTTATATCCCGCCGTTAACCACCATCAAACAGGATTTTCGCCTGCTGGGGCAAACCAGCGTGGACCGCTTGCTGCAACTCTCTCAGGGCCAGGCGGTGAAGGGCAATCAGCTGTTGCCAGTCTCACTGGTGAAAAGAAAAACCACCCTGGCGCCCAATACGCAAACCGCCTCTCCCCGCGCGTTGGCCGATTCATTAATGCAGCTGGCACGACAGGTTTCCCGACTGGAAAGCGGGCAGTGATAA";
+    	//* rbsTetR:
+    	String rbsTetRSequence="TCCAGGAGGAAAAAA";
+    	//* tetR:
+    	String tetRSequence="ATGTCCAGATTAGATAAAAGTAAAGTGATTAACAGCGCATTAGAGCTGCTTAATGAGGTCGGAATCGAAGGTTTAACAACCCGTAAACTCGCCCAGAAGCTAGGTGTAGAGCAGCCTACATTGTATTGGCATGTAAAAAATAAGCGGGCTTTGCTCGACGCCTTAGCCATTGAGATGTTAGATAGGCACCATACTCACTTTTGCCCTTTAGAAGGGGAAAGCTGGCAAGATTTTTTACGTAATAACGCTAAAAGTTTTAGATGTGCTTTACTAAGTCATCGCGATGGAGCAAAAGTACATTTAGGTACACGGCCTACAGAAAAACAGTATGAAACTCTCGAAAATCAATTAGCCTTTTTATGCCAACAAGGTTTTTCACTAGAGAATGCATTATATGCACTCAGCGCTGTGGGGCATTTTACTTTAGGTTGCGTATTGGAAGATCAAGAGCATCAAGTCGCTAAAGAAGAAAGGGAAACACCTACTACTGATAGTATGCCGCCATTATTACGACAAGCTATCGAATTATTTGATCACCAAGGTGCAGAGCCAGCCTTCTTATTCGGCCTTGAATTGATCATATGCGGATTAGAAAAACAACTTAAATGTGAAAGTGGGTCCTAATAA";
+    	
+    	//https://www.nature.com/articles/nature11516#SupplementaryTableS4 && https://www.uniprot.org/uniprotkb/P95429/entry
+    	//Verified the NA sequence's translation information against the  AA sequence in P95429.    	
+    	String exsDSequence = "ATGGAGCAGGAAGACGATAAGCAGTACTCCCGAGAAGCGGTGTTCGCTGGCAGGCGGGTATCCGTGGTGGGCTCGGACGCCCGCTCGCGGGGTCGGGTGCCGGGTTACGCATCGAGCAGTTTGTATCGTGAGTCCGGAATCATCAGTGCGCGGCAACTGGCGTTGCTGCAGCGGATGCTGCCGCGCCTGCGGCTGGAGCAACTGTTCCGCTGCGAGTGGTTGCAGCAGCGCCTGGCGCGCGGCCTGGCGCTGGGGCGCGAAGAGGTGCGGCAGATTCTCCTCTGCGCGGCGCAGGACGACGACGGCTGGTGCTCCGAACTGGGCGACCGGGTCAACCTCGCCGTGCCGCAGTCGATGATCGACTGGGTCCTGCTGCCGGTCTATGGCTGGTGGGAAAGCCTGCTCGACCAGGCGATCCCCGGCTGGCGCCTGTCGCTGGTGGAGCTGGAGACCCAGTCCCGGCAACTGCGAGTCAAGTCCGAATTCTGGTCCCGCGTGGCCGAGCTGGAGCCGGAGCAGGCCCGCGAGGAACTGGCCAGGGTCGCCAAGTGCCAGGCGCGCACCCAGGAACAGGTGGCCGAACTGGCCGGCAAGCTGGAGACGGCTTCGGCACTGGCGAAGAGCGCCTGGCCGAACTGGCAGCGGGGCATGGCGACGCTGCTCGCCAGCGGCGGGCTGGCCGGCTTCGAGCCGATCCCCGAGGTCCTCGAATGCCTCTGGCAACCTCTCTGCCGGCTGGACGACGACGTCGGCGCGGCGGACGCCGTCCAGGCCTGGCTGCACGAACGCAACCTGTGCCAGGCACAGGATCACTTCTACTGGCAGAGCTGA";
+    	    	
+    	//https://www.nature.com/articles/nature11516#SupplementaryTableS4 && https://www.uniprot.org/uniprotkb/P26993/entry
+    	String exsASequence = "ATGCAAGGAGCCAAATCTCTTGGCCGAAAGCAGATAACGTCTTGTCATTGGAACATTCCAACTTTCGAATACAGGGTAAACAAGGAAGAGGGCGTATATGTTCTGCTCGAGGGCGAACTGACCGTCCAGGACATCGATTCCACTTTTTGCCTGGCGCCTGGCGAGTTGCTTTTCGTCCGCCGCGGAAGCTATGTCGTAAGTACCAAGGGAAAGGACAGCCGAATACTCTGGATTCCATTATCTGCCCAGTTTCTACAAGGCTTCGTCCAGCGCTTCGGCGCGCTGTTGAGTGAAGTCGAGCGTTGCGACGAGCCCGTGCCGGGCATCATCGCGTTCGCTGCCACGCCTCTGCTGGCCGGTTGCGTCAAGGGGTTGAAGGAATTGCTTGTGCATGAGCATCCGCCGATGCTCGCCTGCCTGAAGATCGAGGAGTTGCTGATGCTCTTCGCGTTCAGTCCGCAGGGGCCGCTGCTGATGTCGGTCCTGCGGCAACTGAGCAACCGGCATGTCGAGCGTCTGCAGCTATTCATGGAGAAGCACTACCTCAACGAGTGGAAGCTGTCCGACTTCTCCCGCGAGTTCGGCATGGGGCTGACCACCTTCAAGGAGCTGTTCGGCAGTGTCTATGGGGTTTCGCCGCGCGCCTGGATCAGCGAGCGGAGAATCCTCTATGCCCATCAGTTGCTGCTCAACAGCGACATGAGCATCGTCGACATCGCCATGGAGGCGGGCTTTTCCAGTCAGTCCTATTTCACCCAGAGCTATCGCCGCCGTTTCGGCTGCACGCCGAGCCGCTCGCGGCAGGGGAAGGACGAATGCCGGGCTAAAAATAACTGA"; 
+    	    	
+    	//Circuit A
+    	Sequence pLacSeqEntity=createDNASequence(sbolDesign, "pLacI", pLacISequence);
+    	pLacSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"));
+    	pLacSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_PLacI"));
+    	    	    	
+    	Sequence rbsLacISeqEntity=createDNASequence(sbolDesign, "rbsLacI", rbsLacISequence);
+    	rbsLacISeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"));
+    	
+    	Sequence cdsASeqEntity=createDNASequence(sbolDesign, "cdsA", exsDSequence);
+    	cdsASeqEntity.addWasDerivedFrom(URI.create("https://www.nature.com/articles/nature11516#SupplementaryTableS4_exsD"));
+    	cdsASeqEntity.addWasDerivedFrom(URI.create("https://www.uniprot.org/uniprotkb/P95429/entry"));
+    	    	
+    	Sequence terSeqEntity=createDNASequence(sbolDesign, "ter1", terSequence);
+    	terSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_L3S2P21"));
+    	terSeqEntity.addWasDerivedFrom(URI.create("https://parts.igem.org/Part:BBa_K2675031"));
+    	    	    	    	    	
+    	String circuitASequence=pLacISequence + rbsLacISequence + exsDSequence + terSequence;
+    	createDNASequence(sbolDesign, "A_circuit", circuitASequence);
+    	    	    	
+    	
+    	//Circuit B
+    	Sequence pTetSeqEntity=createDNASequence(sbolDesign, "pTet", pTetSequence);
+    	pTetSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_PTet"));
+    	
+    	Sequence rbsTetRSeqEntity=createDNASequence(sbolDesign, "rbsTetR", rbsTetRSequence);
+    	rbsTetRSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"));
+    	
+    	Sequence cdsBSeqEntity=createDNASequence(sbolDesign, "cdsB", exsASequence);
+    	cdsBSeqEntity.addWasDerivedFrom(URI.create("https://www.nature.com/articles/nature11516#SupplementaryTableS4_exsA"));
+    	cdsBSeqEntity.addWasDerivedFrom(URI.create("https://www.uniprot.org/uniprotkb/P26993/entry"));
+    	    	
+    	String circuitBSequence=pTetSequence + rbsTetRSequence + exsASequence + terSequence;
+    	createDNASequence(sbolDesign, "B_circuit", circuitBSequence);
+
+    	
+    	//Sensor specific    	
+    	Sequence pConstLacISeqEntity=createDNASequence(sbolDesign, "pConstLacI", pConstSequence);
+    	pConstLacISeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_BBa_J23101"));
+    	pConstLacISeqEntity.addWasDerivedFrom(URI.create("https://parts.igem.org/Part:BBa_J23101"));
+    	    	    	
+    	Sequence rbs1SeqEntity=createDNASequence(sbolDesign, "rbs1", rbsConstSequence);
+    	rbs1SeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryFigureS34"));
+    	rbs1SeqEntity.addWasDerivedFrom(URI.create("https://parts.igem.org/Part:BBa_B0064"));        
+    	
+    	Sequence cdsLacISeqEntity=createDNASequence(sbolDesign, "cdsLacI", lacISequence);
+    	cdsLacISeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"));
+    	cdsLacISeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_lacI"));
+    	            	
+    	Sequence pConstTetRSeqEntity=createDNASequence(sbolDesign, "pConstTetR", pConstSequence);    	
+    	pConstTetRSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_BBa_J23101"));
+    	pConstTetRSeqEntity.addWasDerivedFrom(URI.create("https://parts.igem.org/Part:BBa_J23101"));
+    	
+    	Sequence rbs2SeqEntity =createDNASequence(sbolDesign, "rbs2", rbsConstSequence);
+    	rbs2SeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryFigureS34"));
+    	rbs2SeqEntity.addWasDerivedFrom(URI.create("https://parts.igem.org/Part:BBa_B0064"));
+            	
+    	Sequence cdsTetRSeqEntity=createDNASequence(sbolDesign, "cdsTetR", tetRSequence);
+    	cdsTetRSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS8_LacITetRSensorModule"));
+    	cdsTetRSeqEntity.addWasDerivedFrom(URI.create("https://doi.org/10.1126/science.aac7341#SupplementaryTableS9_tetR"));    	
+    	    	
+    	String circuitSensorSequence=pConstSequence + rbsConstSequence + lacISequence + terSequence + pConstSequence + rbsConstSequence + tetRSequence + terSequence;  ;
+    	createDNASequence(sbolDesign, "Sensor_circuit", circuitSensorSequence);
+	}
 	
 	public void createModel(String filePath, int timeAStart, int timeBStart, int duration, int[] aValues, int[] bValues) throws Exception
 	{
@@ -227,7 +331,37 @@ public class MolSim7 {
     	
 	}
 	
-
+	private ComponentDefinition getComponent(SBOLDocument doc, String name)
+	{
+		ComponentDefinition found=null;
+		Set<ComponentDefinition> components=doc.getComponentDefinitions();
+		if (doc!=null && doc.getComponentDefinitions()!=null)
+		{
+			for (ComponentDefinition cd: components)
+			{
+				if (cd.getDisplayId().equals(name))
+				{
+					found=cd;
+					break;
+				}
+			}
+		}
+		return found;		
+	}
+	
+	private Sequence createDNASequence(SBOLDocument doc, String componentName, String sequence) throws SBOLValidationException
+	{
+		ComponentDefinition component=getComponent(doc, componentName);
+		return createDNASequence(doc, component, componentName + "_seq", sequence);			
+	}
+	
+	private Sequence createDNASequence(SBOLDocument doc, ComponentDefinition component, String name, String na) throws SBOLValidationException
+	{
+		Sequence sequence=doc.createSequence(name, na, Sequence.IUPAC_DNA);
+		component.addSequence(sequence.getIdentity());		
+		return sequence;						
+	}
+	
 	
 	private SBMLDocument getModel(SBOLDocument sbolDocument) throws Exception
 	{
@@ -242,9 +376,16 @@ public class MolSim7 {
 		SBMLDocument sbmlDoc=bioSign.createModelStructure();
 		sbmlDoc=addEvents(sbmlDoc);
 		SBMLWriter.write(sbmlDoc, "abcommv7.xml" ,' ', (short) 2);   
+		
+		SBOLDocument sbolDesign=bioSign.getGeneticDesign();
+		SBOLWriter.write(sbolDesign, new File("abcomm.sbol"));
     	
     	System.out.println("...done!");
 	}
+	private SBOLDocument getGeneticDesign() {
+		return sbolDesign;
+	}
+
 	private static int[] getValues(String line, int total_duration, int sampling_rate )
 	{
 		  int aValues[] = new int[total_duration/sampling_rate];
