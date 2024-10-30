@@ -6,28 +6,28 @@
         <comp:submodel comp:id="pTetC1_model" comp:modelRef="pTet_model"/>
         <comp:submodel comp:id="rbsTetRC2_model_pTetC1" comp:modelRef="rbsTetR_model"/>
         <comp:submodel comp:id="cdsBC3_model_pTetC1" comp:modelRef="cdsB_model"/>
+        <comp:submodel comp:id="LacI_dimerisation_model" comp:modelRef="dimerisation"/>
         <comp:submodel comp:id="TetR_ATC_degradation_model" comp:modelRef="degradation_template"/>
         <comp:submodel comp:id="ATC_bindsto_TetR_Dimer_model" comp:modelRef="ATC_bindsto_TetR_Dimer_model"/>
-        <comp:submodel comp:id="TetR_Dimer_represses_pTet_pTetC1_model" comp:modelRef="TetR_Dimer_represses_pTet_model"/>
-        <comp:submodel comp:id="TetR_dimerisation_model" comp:modelRef="dimerisation"/>
-        <comp:submodel comp:id="LacI_dimerisation_model" comp:modelRef="dimerisation"/>
         <comp:submodel comp:id="A_bindsto_B_model" comp:modelRef="A_bindsto_B_model"/>
         <comp:submodel comp:id="AB_degradation_model" comp:modelRef="degradation_template"/>
+        <comp:submodel comp:id="TetR_Dimer_represses_pTet_pTetC1_model" comp:modelRef="TetR_Dimer_represses_pTet_model"/>
+        <comp:submodel comp:id="TetR_dimerisation_model" comp:modelRef="dimerisation"/>
         <comp:submodel comp:id="IPTG_bindsto_LacI_Tetramer_model" comp:modelRef="IPTG_bindsto_LacI_Tetramer_model"/>
         <comp:submodel comp:id="LacI_IPTG_degradation_model" comp:modelRef="degradation_template"/>
         <comp:submodel comp:id="LacI_Dimer_dimerisation_model" comp:modelRef="dimerisation"/>
       </comp:listOfSubmodels>
       <comp:listOfPorts>
         <comp:port comp:id="SigmaA_port" comp:idRef="SigmaA"/>
+        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
+        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
         <comp:port comp:id="TetR_ATC_port" comp:idRef="TetR_ATC"/>
         <comp:port comp:id="ATC_port" comp:idRef="ATC"/>
         <comp:port comp:id="TetR_Dimer_port" comp:idRef="TetR_Dimer"/>
-        <comp:port comp:id="TetR_port" comp:idRef="TetR"/>
-        <comp:port comp:id="B_port" comp:idRef="B"/>
-        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
-        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
         <comp:port comp:id="A_port" comp:idRef="A"/>
+        <comp:port comp:id="B_port" comp:idRef="B"/>
         <comp:port comp:id="AB_port" comp:idRef="AB"/>
+        <comp:port comp:id="TetR_port" comp:idRef="TetR"/>
         <comp:port comp:id="LacI_Tetramer_port" comp:idRef="LacI_Tetramer"/>
         <comp:port comp:id="LacI_IPTG_port" comp:idRef="LacI_IPTG"/>
         <comp:port comp:id="IPTG_port" comp:idRef="IPTG"/>
@@ -56,13 +56,13 @@
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="pTetC1_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="rbsTetRC2_model_pTetC1"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="cdsBC3_model_pTetC1"/>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="LacI_dimerisation_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="TetR_ATC_degradation_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="ATC_bindsto_TetR_Dimer_model"/>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="TetR_Dimer_represses_pTet_pTetC1_model"/>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="TetR_dimerisation_model"/>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="LacI_dimerisation_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="A_bindsto_B_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="AB_degradation_model"/>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="TetR_Dimer_represses_pTet_pTetC1_model"/>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="TetR_dimerisation_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="IPTG_bindsto_LacI_Tetramer_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="LacI_IPTG_degradation_model"/>
             <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="LacI_Dimer_dimerisation_model"/>
@@ -98,6 +98,17 @@
             <comp:replacedElement comp:portRef="component_port" comp:submodelRef="cdsBC3_model_pTetC1"/>
           </comp:listOfReplacedElements>
         </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="dimer_port" comp:submodelRef="LacI_dimerisation_model"/>
+            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="LacI_Dimer_dimerisation_model"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="LacI_dimerisation_model"/>
+          </comp:listOfReplacedElements>
+        </species>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
             <comp:replacedElement comp:portRef="input_port" comp:submodelRef="TetR_ATC_degradation_model"/>
@@ -116,37 +127,26 @@
             <comp:replacedElement comp:portRef="dimer_port" comp:submodelRef="TetR_dimerisation_model"/>
           </comp:listOfReplacedElements>
         </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="TetR_dimerisation_model"/>
+            <comp:replacedElement comp:portRef="species1_port" comp:submodelRef="A_bindsto_B_model"/>
           </comp:listOfReplacedElements>
         </species>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsBC3_model_pTetC1"/>
             <comp:replacedElement comp:portRef="species2_port" comp:submodelRef="A_bindsto_B_model"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="dimer_port" comp:submodelRef="LacI_dimerisation_model"/>
-            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="LacI_Dimer_dimerisation_model"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="LacI_dimerisation_model"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="species1_port" comp:submodelRef="A_bindsto_B_model"/>
+            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsBC3_model_pTetC1"/>
           </comp:listOfReplacedElements>
         </species>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AB" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
             <comp:replacedElement comp:portRef="input_port" comp:submodelRef="AB_degradation_model"/>
             <comp:replacedElement comp:portRef="complex_port" comp:submodelRef="A_bindsto_B_model"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="species_port" comp:submodelRef="TetR_dimerisation_model"/>
           </comp:listOfReplacedElements>
         </species>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Tetramer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
@@ -701,384 +701,6 @@
         </reaction>
       </listOfReactions>
     </comp:modelDefinition>
-    <comp:modelDefinition id="ATC_bindsto_TetR_Dimer_model" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
-      <comp:listOfSubmodels>
-        <comp:submodel comp:id="binding" comp:modelRef="bindingwithmodifier_template"/>
-      </comp:listOfSubmodels>
-      <comp:listOfPorts>
-        <comp:port comp:id="kback_port" comp:idRef="kb"/>
-        <comp:port comp:id="complex_port" comp:idRef="complex"/>
-        <comp:port comp:id="volume_port" comp:idRef="cell"/>
-        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
-        <comp:port comp:id="reactant_port" comp:idRef="reactant"/>
-        <comp:port comp:id="modifier_port" comp:idRef="modifier"/>
-      </comp:listOfPorts>
-      <listOfUnitDefinitions>
-        <unitDefinition id="nano_mole_per_litre">
-          <listOfUnits>
-            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="volume">
-          <listOfUnits>
-            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="per_second">
-          <listOfUnits>
-            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
-          </listOfUnits>
-        </unitDefinition>
-      </listOfUnitDefinitions>
-      <listOfCompartments>
-        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </compartment>
-      </listOfCompartments>
-      <listOfSpecies>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="modifier" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="modifier_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="reactant" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="reactant_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="complex_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-      </listOfSpecies>
-      <listOfParameters>
-        <parameter constant="true" id="kf" value="0.25">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-        <parameter constant="true" id="kb" value="0.27">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-      </listOfParameters>
-    </comp:modelDefinition>
-    <comp:modelDefinition id="bindingwithmodifier_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
-      <comp:listOfPorts>
-        <comp:port comp:id="complex_port" comp:idRef="complex"/>
-        <comp:port comp:id="kback_port" comp:idRef="kb"/>
-        <comp:port comp:id="volume_port" comp:idRef="cell"/>
-        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
-        <comp:port comp:id="reactant_port" comp:idRef="reactant"/>
-        <comp:port comp:id="modifier_port" comp:idRef="modifier"/>
-      </comp:listOfPorts>
-      <listOfUnitDefinitions>
-        <unitDefinition id="nano_mole_per_litre">
-          <listOfUnits>
-            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="volume">
-          <listOfUnits>
-            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="per_second">
-          <listOfUnits>
-            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
-          </listOfUnits>
-        </unitDefinition>
-      </listOfUnitDefinitions>
-      <listOfCompartments>
-        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre"/>
-      </listOfCompartments>
-      <listOfSpecies>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="modifier" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="reactant" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-      </listOfSpecies>
-      <listOfParameters>
-        <parameter constant="true" id="kf" value="0.001"/>
-        <parameter constant="true" id="kb" value="0.5"/>
-      </listOfParameters>
-      <listOfReactions>
-        <reaction fast="false" id="binding" reversible="false">
-          <listOfReactants>
-            <speciesReference constant="false" species="reactant"/>
-          </listOfReactants>
-          <listOfProducts>
-            <speciesReference constant="false" species="complex"/>
-          </listOfProducts>
-          <listOfModifiers>
-            <modifierSpeciesReference species="modifier"/>
-          </listOfModifiers>
-          <kineticLaw>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">            
-              <apply>
-                <times/>
-                <apply>
-                  <times/>
-                  <apply>
-                    <times/>
-                    <ci> cell </ci>
-                    <ci> modifier </ci>
-                  </apply>
-                  <ci> reactant </ci>
-                </apply>
-                <ci> kf </ci>
-              </apply>
-            </math>
-                    </kineticLaw>
-        </reaction>
-        <reaction fast="false" id="unbinding" reversible="false">
-          <listOfReactants>
-            <speciesReference constant="false" species="complex"/>
-          </listOfReactants>
-          <listOfProducts>
-            <speciesReference constant="false" species="reactant"/>
-          </listOfProducts>
-          <kineticLaw>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">            
-              <apply>
-                <times/>
-                <apply>
-                  <times/>
-                  <ci> cell </ci>
-                  <ci> complex </ci>
-                </apply>
-                <ci> kb </ci>
-              </apply>
-            </math>
-                    </kineticLaw>
-        </reaction>
-      </listOfReactions>
-    </comp:modelDefinition>
-    <comp:modelDefinition id="TetR_Dimer_represses_pTet_model" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
-      <comp:listOfSubmodels>
-        <comp:submodel comp:id="prt" comp:modelRef="promoterrepression_template"/>
-      </comp:listOfSubmodels>
-      <comp:listOfPorts>
-        <comp:port comp:id="kback_port" comp:idRef="kb"/>
-        <comp:port comp:id="tf_port" comp:idRef="inhibitor"/>
-        <comp:port comp:id="volume_port" comp:idRef="cell"/>
-        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
-        <comp:port comp:id="mrna_port" comp:idRef="mRNA"/>
-        <comp:port comp:id="component_port" comp:idRef="promoter"/>
-      </comp:listOfPorts>
-      <listOfUnitDefinitions>
-        <unitDefinition id="nano_mole_per_litre">
-          <listOfUnits>
-            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="volume">
-          <listOfUnits>
-            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="per_second">
-          <listOfUnits>
-            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
-          </listOfUnits>
-        </unitDefinition>
-      </listOfUnitDefinitions>
-      <listOfCompartments>
-        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </compartment>
-      </listOfCompartments>
-      <listOfSpecies>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="mRNA" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="mrna_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="inhibitor" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="tf_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoter" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="component_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </species>
-      </listOfSpecies>
-      <listOfParameters>
-        <parameter constant="true" id="kf" value="0.025">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-        <parameter constant="true" id="kb" value="0.2">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="prt"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-      </listOfParameters>
-    </comp:modelDefinition>
-    <comp:modelDefinition id="promoterrepression_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
-      <comp:listOfSubmodels>
-        <comp:submodel comp:id="binding" comp:modelRef="binding_template"/>
-      </comp:listOfSubmodels>
-      <comp:listOfPorts>
-        <comp:port comp:id="kback_port" comp:idRef="kb"/>
-        <comp:port comp:id="tf_port" comp:idRef="activator"/>
-        <comp:port comp:id="volume_port" comp:idRef="cell"/>
-        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
-        <comp:port comp:id="mrna_port" comp:idRef="mRNA"/>
-        <comp:port comp:id="component_port" comp:idRef="promoter"/>
-      </comp:listOfPorts>
-      <listOfUnitDefinitions>
-        <unitDefinition id="nano_mole_per_litre">
-          <listOfUnits>
-            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="volume">
-          <listOfUnits>
-            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="per_second">
-          <listOfUnits>
-            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
-          </listOfUnits>
-        </unitDefinition>
-      </listOfUnitDefinitions>
-      <listOfCompartments>
-        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </compartment>
-      </listOfCompartments>
-      <listOfSpecies>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoter" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="species1_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="activator" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="species2_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoterRepressor" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="complex_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="mRNA" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-      </listOfSpecies>
-      <listOfParameters>
-        <parameter constant="true" id="kf" value="0.001">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-        <parameter constant="true" id="kb" value="0.5">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="binding"/>
-          </comp:listOfReplacedElements>
-        </parameter>
-      </listOfParameters>
-    </comp:modelDefinition>
-    <comp:modelDefinition id="binding_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
-      <comp:listOfPorts>
-        <comp:port comp:id="species1_port" comp:idRef="species1"/>
-        <comp:port comp:id="complex_port" comp:idRef="complex"/>
-        <comp:port comp:id="kback_port" comp:idRef="kb"/>
-        <comp:port comp:id="volume_port" comp:idRef="cell"/>
-        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
-        <comp:port comp:id="species2_port" comp:idRef="species2"/>
-      </comp:listOfPorts>
-      <listOfUnitDefinitions>
-        <unitDefinition id="nano_mole_per_litre">
-          <listOfUnits>
-            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="volume">
-          <listOfUnits>
-            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
-          </listOfUnits>
-        </unitDefinition>
-        <unitDefinition id="per_second">
-          <listOfUnits>
-            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
-          </listOfUnits>
-        </unitDefinition>
-      </listOfUnitDefinitions>
-      <listOfCompartments>
-        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre"/>
-      </listOfCompartments>
-      <listOfSpecies>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="species1" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="species2" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-      </listOfSpecies>
-      <listOfParameters>
-        <parameter constant="true" id="kf" value="0.001"/>
-        <parameter constant="true" id="kb" value="0.5"/>
-      </listOfParameters>
-      <listOfReactions>
-        <reaction fast="false" id="binding" reversible="false">
-          <listOfReactants>
-            <speciesReference constant="false" species="species1"/>
-            <speciesReference constant="false" species="species2"/>
-          </listOfReactants>
-          <listOfProducts>
-            <speciesReference constant="false" species="complex"/>
-          </listOfProducts>
-          <kineticLaw>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">            
-              <apply>
-                <times/>
-                <apply>
-                  <times/>
-                  <apply>
-                    <times/>
-                    <ci> cell </ci>
-                    <ci> species1 </ci>
-                  </apply>
-                  <ci> species2 </ci>
-                </apply>
-                <ci> kf </ci>
-              </apply>
-            </math>
-                    </kineticLaw>
-        </reaction>
-        <reaction fast="false" id="unbinding" reversible="false">
-          <listOfReactants>
-            <speciesReference constant="false" species="complex"/>
-          </listOfReactants>
-          <listOfProducts>
-            <speciesReference constant="false" species="species1"/>
-            <speciesReference constant="false" species="species2"/>
-          </listOfProducts>
-          <kineticLaw>
-            <math xmlns="http://www.w3.org/1998/Math/MathML">            
-              <apply>
-                <times/>
-                <apply>
-                  <times/>
-                  <ci> cell </ci>
-                  <ci> complex </ci>
-                </apply>
-                <ci> kb </ci>
-              </apply>
-            </math>
-                    </kineticLaw>
-        </reaction>
-      </listOfReactions>
-    </comp:modelDefinition>
     <comp:modelDefinition id="dimerisation" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
       <comp:listOfSubmodels>
         <comp:submodel comp:id="dt" comp:modelRef="dimerisation_template"/>
@@ -1235,6 +857,162 @@
         </reaction>
       </listOfReactions>
     </comp:modelDefinition>
+    <comp:modelDefinition id="ATC_bindsto_TetR_Dimer_model" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
+      <comp:listOfSubmodels>
+        <comp:submodel comp:id="binding" comp:modelRef="bindingwithmodifier_template"/>
+      </comp:listOfSubmodels>
+      <comp:listOfPorts>
+        <comp:port comp:id="kback_port" comp:idRef="kb"/>
+        <comp:port comp:id="complex_port" comp:idRef="complex"/>
+        <comp:port comp:id="volume_port" comp:idRef="cell"/>
+        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
+        <comp:port comp:id="reactant_port" comp:idRef="reactant"/>
+        <comp:port comp:id="modifier_port" comp:idRef="modifier"/>
+      </comp:listOfPorts>
+      <listOfUnitDefinitions>
+        <unitDefinition id="nano_mole_per_litre">
+          <listOfUnits>
+            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="volume">
+          <listOfUnits>
+            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="per_second">
+          <listOfUnits>
+            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+          </listOfUnits>
+        </unitDefinition>
+      </listOfUnitDefinitions>
+      <listOfCompartments>
+        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </compartment>
+      </listOfCompartments>
+      <listOfSpecies>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="modifier" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="modifier_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="reactant" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="reactant_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="complex_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+      </listOfSpecies>
+      <listOfParameters>
+        <parameter constant="true" id="kf" value="0.25">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+        <parameter constant="true" id="kb" value="0.27">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+      </listOfParameters>
+    </comp:modelDefinition>
+    <comp:modelDefinition id="bindingwithmodifier_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
+      <comp:listOfPorts>
+        <comp:port comp:id="complex_port" comp:idRef="complex"/>
+        <comp:port comp:id="kback_port" comp:idRef="kb"/>
+        <comp:port comp:id="volume_port" comp:idRef="cell"/>
+        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
+        <comp:port comp:id="reactant_port" comp:idRef="reactant"/>
+        <comp:port comp:id="modifier_port" comp:idRef="modifier"/>
+      </comp:listOfPorts>
+      <listOfUnitDefinitions>
+        <unitDefinition id="nano_mole_per_litre">
+          <listOfUnits>
+            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="volume">
+          <listOfUnits>
+            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="per_second">
+          <listOfUnits>
+            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+          </listOfUnits>
+        </unitDefinition>
+      </listOfUnitDefinitions>
+      <listOfCompartments>
+        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre"/>
+      </listOfCompartments>
+      <listOfSpecies>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="modifier" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="reactant" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+      </listOfSpecies>
+      <listOfParameters>
+        <parameter constant="true" id="kf" value="0.001"/>
+        <parameter constant="true" id="kb" value="0.5"/>
+      </listOfParameters>
+      <listOfReactions>
+        <reaction fast="false" id="binding" reversible="false">
+          <listOfReactants>
+            <speciesReference constant="false" species="reactant"/>
+          </listOfReactants>
+          <listOfProducts>
+            <speciesReference constant="false" species="complex"/>
+          </listOfProducts>
+          <listOfModifiers>
+            <modifierSpeciesReference species="modifier"/>
+          </listOfModifiers>
+          <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> modifier </ci>
+                  </apply>
+                  <ci> reactant </ci>
+                </apply>
+                <ci> kf </ci>
+              </apply>
+            </math>
+                    </kineticLaw>
+        </reaction>
+        <reaction fast="false" id="unbinding" reversible="false">
+          <listOfReactants>
+            <speciesReference constant="false" species="complex"/>
+          </listOfReactants>
+          <listOfProducts>
+            <speciesReference constant="false" species="reactant"/>
+          </listOfProducts>
+          <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> complex </ci>
+                </apply>
+                <ci> kb </ci>
+              </apply>
+            </math>
+                    </kineticLaw>
+        </reaction>
+      </listOfReactions>
+    </comp:modelDefinition>
     <comp:modelDefinition id="A_bindsto_B_model" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
       <comp:listOfSubmodels>
         <comp:submodel comp:id="binding" comp:modelRef="binding_template"/>
@@ -1290,6 +1068,228 @@
       </listOfSpecies>
       <listOfParameters>
         <parameter constant="true" id="kf" value="0.1">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+        <parameter constant="true" id="kb" value="0.5">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+      </listOfParameters>
+    </comp:modelDefinition>
+    <comp:modelDefinition id="binding_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
+      <comp:listOfPorts>
+        <comp:port comp:id="species1_port" comp:idRef="species1"/>
+        <comp:port comp:id="complex_port" comp:idRef="complex"/>
+        <comp:port comp:id="kback_port" comp:idRef="kb"/>
+        <comp:port comp:id="volume_port" comp:idRef="cell"/>
+        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
+        <comp:port comp:id="species2_port" comp:idRef="species2"/>
+      </comp:listOfPorts>
+      <listOfUnitDefinitions>
+        <unitDefinition id="nano_mole_per_litre">
+          <listOfUnits>
+            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="volume">
+          <listOfUnits>
+            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="per_second">
+          <listOfUnits>
+            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+          </listOfUnits>
+        </unitDefinition>
+      </listOfUnitDefinitions>
+      <listOfCompartments>
+        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre"/>
+      </listOfCompartments>
+      <listOfSpecies>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="species1" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="species2" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="complex" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+      </listOfSpecies>
+      <listOfParameters>
+        <parameter constant="true" id="kf" value="0.001"/>
+        <parameter constant="true" id="kb" value="0.5"/>
+      </listOfParameters>
+      <listOfReactions>
+        <reaction fast="false" id="binding" reversible="false">
+          <listOfReactants>
+            <speciesReference constant="false" species="species1"/>
+            <speciesReference constant="false" species="species2"/>
+          </listOfReactants>
+          <listOfProducts>
+            <speciesReference constant="false" species="complex"/>
+          </listOfProducts>
+          <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <times/>
+                    <ci> cell </ci>
+                    <ci> species1 </ci>
+                  </apply>
+                  <ci> species2 </ci>
+                </apply>
+                <ci> kf </ci>
+              </apply>
+            </math>
+                    </kineticLaw>
+        </reaction>
+        <reaction fast="false" id="unbinding" reversible="false">
+          <listOfReactants>
+            <speciesReference constant="false" species="complex"/>
+          </listOfReactants>
+          <listOfProducts>
+            <speciesReference constant="false" species="species1"/>
+            <speciesReference constant="false" species="species2"/>
+          </listOfProducts>
+          <kineticLaw>
+            <math xmlns="http://www.w3.org/1998/Math/MathML">            
+              <apply>
+                <times/>
+                <apply>
+                  <times/>
+                  <ci> cell </ci>
+                  <ci> complex </ci>
+                </apply>
+                <ci> kb </ci>
+              </apply>
+            </math>
+                    </kineticLaw>
+        </reaction>
+      </listOfReactions>
+    </comp:modelDefinition>
+    <comp:modelDefinition id="TetR_Dimer_represses_pTet_model" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
+      <comp:listOfSubmodels>
+        <comp:submodel comp:id="prt" comp:modelRef="promoterrepression_template"/>
+      </comp:listOfSubmodels>
+      <comp:listOfPorts>
+        <comp:port comp:id="kback_port" comp:idRef="kb"/>
+        <comp:port comp:id="tf_port" comp:idRef="inhibitor"/>
+        <comp:port comp:id="volume_port" comp:idRef="cell"/>
+        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
+        <comp:port comp:id="mrna_port" comp:idRef="mRNA"/>
+        <comp:port comp:id="component_port" comp:idRef="promoter"/>
+      </comp:listOfPorts>
+      <listOfUnitDefinitions>
+        <unitDefinition id="nano_mole_per_litre">
+          <listOfUnits>
+            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="volume">
+          <listOfUnits>
+            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="per_second">
+          <listOfUnits>
+            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+          </listOfUnits>
+        </unitDefinition>
+      </listOfUnitDefinitions>
+      <listOfCompartments>
+        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </compartment>
+      </listOfCompartments>
+      <listOfSpecies>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="mRNA" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="mrna_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="inhibitor" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="tf_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoter" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="component_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </species>
+      </listOfSpecies>
+      <listOfParameters>
+        <parameter constant="true" id="kf" value="0.025">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+        <parameter constant="true" id="kb" value="0.2">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="kback_port" comp:submodelRef="prt"/>
+          </comp:listOfReplacedElements>
+        </parameter>
+      </listOfParameters>
+    </comp:modelDefinition>
+    <comp:modelDefinition id="promoterrepression_template" substanceUnits="nano_mole_per_litre" volumeUnits="volume">
+      <comp:listOfSubmodels>
+        <comp:submodel comp:id="binding" comp:modelRef="binding_template"/>
+      </comp:listOfSubmodels>
+      <comp:listOfPorts>
+        <comp:port comp:id="kback_port" comp:idRef="kb"/>
+        <comp:port comp:id="tf_port" comp:idRef="activator"/>
+        <comp:port comp:id="volume_port" comp:idRef="cell"/>
+        <comp:port comp:id="kforward_port" comp:idRef="kf"/>
+        <comp:port comp:id="mrna_port" comp:idRef="mRNA"/>
+        <comp:port comp:id="component_port" comp:idRef="promoter"/>
+      </comp:listOfPorts>
+      <listOfUnitDefinitions>
+        <unitDefinition id="nano_mole_per_litre">
+          <listOfUnits>
+            <unit exponent="1" kind="mole" multiplier="1" scale="-9"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="volume">
+          <listOfUnits>
+            <unit exponent="1" kind="litre" multiplier="1" scale="-15"/>
+          </listOfUnits>
+        </unitDefinition>
+        <unitDefinition id="per_second">
+          <listOfUnits>
+            <unit exponent="-1" kind="second" multiplier="1" scale="0"/>
+          </listOfUnits>
+        </unitDefinition>
+      </listOfUnitDefinitions>
+      <listOfCompartments>
+        <compartment constant="true" id="cell" size="1E-15" spatialDimensions="3" units="litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="volume_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </compartment>
+      </listOfCompartments>
+      <listOfSpecies>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoter" initialConcentration="1.6611" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="species1_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="activator" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="species2_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="promoterRepressor" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="complex_port" comp:submodelRef="binding"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="mRNA" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+      </listOfSpecies>
+      <listOfParameters>
+        <parameter constant="true" id="kf" value="0.001">
           <comp:listOfReplacedElements>
             <comp:replacedElement comp:portRef="kforward_port" comp:submodelRef="binding"/>
           </comp:listOfReplacedElements>
@@ -1378,15 +1378,15 @@
       </comp:listOfSubmodels>
       <comp:listOfPorts>
         <comp:port comp:id="SigmaA_port" comp:idRef="SigmaA"/>
+        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
+        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
         <comp:port comp:id="TetR_ATC_port" comp:idRef="TetR_ATC"/>
         <comp:port comp:id="ATC_port" comp:idRef="ATC"/>
         <comp:port comp:id="TetR_Dimer_port" comp:idRef="TetR_Dimer"/>
-        <comp:port comp:id="TetR_port" comp:idRef="TetR"/>
-        <comp:port comp:id="B_port" comp:idRef="B"/>
-        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
-        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
         <comp:port comp:id="A_port" comp:idRef="A"/>
+        <comp:port comp:id="B_port" comp:idRef="B"/>
         <comp:port comp:id="AB_port" comp:idRef="AB"/>
+        <comp:port comp:id="TetR_port" comp:idRef="TetR"/>
         <comp:port comp:id="LacI_Tetramer_port" comp:idRef="LacI_Tetramer"/>
         <comp:port comp:id="LacI_IPTG_port" comp:idRef="LacI_IPTG"/>
         <comp:port comp:id="IPTG_port" comp:idRef="IPTG"/>
@@ -1470,23 +1470,23 @@
             <comp:replacedElement comp:portRef="component_port" comp:submodelRef="cdsTetRC7_model_pConstTetRC5"/>
           </comp:listOfReplacedElements>
         </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsTetRC7_model_pConstTetRC5"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
             <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsLacIC3_model_pConstLacIC1"/>
           </comp:listOfReplacedElements>
         </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AB" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsTetRC7_model_pConstTetRC5"/>
+          </comp:listOfReplacedElements>
+        </species>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Tetramer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_IPTG" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="IPTG" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
@@ -1913,16 +1913,16 @@
       </comp:listOfSubmodels>
       <comp:listOfPorts>
         <comp:port comp:id="SigmaA_port" comp:idRef="SigmaA"/>
+        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
+        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
         <comp:port comp:id="TetR_ATC_port" comp:idRef="TetR_ATC"/>
         <comp:port comp:id="ATC_port" comp:idRef="ATC"/>
         <comp:port comp:id="TetR_Dimer_port" comp:idRef="TetR_Dimer"/>
+        <comp:port comp:id="A_port" comp:idRef="A"/>
+        <comp:port comp:id="B_port" comp:idRef="B"/>
+        <comp:port comp:id="AB_port" comp:idRef="AB"/>
         <comp:port comp:id="TetR_port" comp:idRef="TetR"/>
         <comp:port comp:id="LacI_Tetramer_port" comp:idRef="LacI_Tetramer"/>
-        <comp:port comp:id="B_port" comp:idRef="B"/>
-        <comp:port comp:id="LacI_Dimer_port" comp:idRef="LacI_Dimer"/>
-        <comp:port comp:id="LacI_port" comp:idRef="LacI"/>
-        <comp:port comp:id="A_port" comp:idRef="A"/>
-        <comp:port comp:id="AB_port" comp:idRef="AB"/>
         <comp:port comp:id="LacI_IPTG_port" comp:idRef="LacI_IPTG"/>
         <comp:port comp:id="IPTG_port" comp:idRef="IPTG"/>
         <comp:port comp:id="cell_port" comp:idRef="cell"/>
@@ -1983,24 +1983,24 @@
             <comp:replacedElement comp:portRef="component_port" comp:submodelRef="cdsAC3_model_pLacIC1"/>
           </comp:listOfReplacedElements>
         </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+          <comp:listOfReplacedElements>
+            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsAC3_model_pLacIC1"/>
+          </comp:listOfReplacedElements>
+        </species>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
+        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AB" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Tetramer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
           <comp:listOfReplacedElements>
             <comp:replacedElement comp:portRef="tf_port" comp:submodelRef="LacI_Tetramer_represses_pLacI_pLacIC1_model"/>
           </comp:listOfReplacedElements>
         </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-          <comp:listOfReplacedElements>
-            <comp:replacedElement comp:portRef="cdsproduct_port" comp:submodelRef="cdsAC3_model_pLacIC1"/>
-          </comp:listOfReplacedElements>
-        </species>
-        <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AB" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_IPTG" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
         <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="IPTG" initialConcentration="0" substanceUnits="nano_mole_per_litre"/>
       </listOfSpecies>
@@ -2320,6 +2320,20 @@
           <comp:replacedElement comp:portRef="SigmaA_port" comp:submodelRef="A_circuit_model"/>
         </comp:listOfReplacedElements>
       </species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
+          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="B_circuit_model"/>
+          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="Sensor_circuit_model"/>
+          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="A_circuit_model"/>
+        </comp:listOfReplacedElements>
+      </species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
+          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="B_circuit_model"/>
+          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="Sensor_circuit_model"/>
+          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="A_circuit_model"/>
+        </comp:listOfReplacedElements>
+      </species>
       <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR_ATC" initialConcentration="0" substanceUnits="nano_mole_per_litre">
         <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
           <comp:replacedElement comp:portRef="TetR_ATC_port" comp:submodelRef="B_circuit_model"/>
@@ -2341,11 +2355,11 @@
           <comp:replacedElement comp:portRef="TetR_Dimer_port" comp:submodelRef="A_circuit_model"/>
         </comp:listOfReplacedElements>
       </species>
-      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
         <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
-          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="B_circuit_model"/>
-          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="Sensor_circuit_model"/>
-          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="A_circuit_model"/>
+          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="B_circuit_model"/>
+          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="Sensor_circuit_model"/>
+          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="A_circuit_model"/>
         </comp:listOfReplacedElements>
       </species>
       <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="B" initialConcentration="0" substanceUnits="nano_mole_per_litre">
@@ -2355,32 +2369,18 @@
           <comp:replacedElement comp:portRef="B_port" comp:submodelRef="A_circuit_model"/>
         </comp:listOfReplacedElements>
       </species>
-      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Dimer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
-          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="B_circuit_model"/>
-          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="Sensor_circuit_model"/>
-          <comp:replacedElement comp:portRef="LacI_Dimer_port" comp:submodelRef="A_circuit_model"/>
-        </comp:listOfReplacedElements>
-      </species>
-      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
-          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="B_circuit_model"/>
-          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="Sensor_circuit_model"/>
-          <comp:replacedElement comp:portRef="LacI_port" comp:submodelRef="A_circuit_model"/>
-        </comp:listOfReplacedElements>
-      </species>
-      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="A" initialConcentration="0" substanceUnits="nano_mole_per_litre">
-        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
-          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="B_circuit_model"/>
-          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="Sensor_circuit_model"/>
-          <comp:replacedElement comp:portRef="A_port" comp:submodelRef="A_circuit_model"/>
-        </comp:listOfReplacedElements>
-      </species>
       <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="AB" initialConcentration="0" substanceUnits="nano_mole_per_litre">
         <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
           <comp:replacedElement comp:portRef="AB_port" comp:submodelRef="B_circuit_model"/>
           <comp:replacedElement comp:portRef="AB_port" comp:submodelRef="Sensor_circuit_model"/>
           <comp:replacedElement comp:portRef="AB_port" comp:submodelRef="A_circuit_model"/>
+        </comp:listOfReplacedElements>
+      </species>
+      <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="TetR" initialConcentration="0" substanceUnits="nano_mole_per_litre">
+        <comp:listOfReplacedElements xmlns:comp="http://www.sbml.org/sbml/level3/version1/comp/version1">
+          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="B_circuit_model"/>
+          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="Sensor_circuit_model"/>
+          <comp:replacedElement comp:portRef="TetR_port" comp:submodelRef="A_circuit_model"/>
         </comp:listOfReplacedElements>
       </species>
       <species boundaryCondition="false" compartment="cell" constant="false" hasOnlySubstanceUnits="false" id="LacI_Tetramer" initialConcentration="0" substanceUnits="nano_mole_per_litre">
